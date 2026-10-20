@@ -226,10 +226,9 @@
     <div class="linha-total"><span>Total</span><span id="total-carrinho">R$ 0,00</span></div>
 
     <form id="form-checkout">
-      <div class="field"><label>Seu nome *</label><input type="text" id="chk-nome" required></div>
-      <div class="field"><label>WhatsApp / telefone *</label><input type="tel" id="chk-telefone" placeholder="(16) 99999-9999" required></div>
+      <div class="field"><label>Seu nome (opcional)</label><input type="text" id="chk-nome"></div>
       <div class="field"><label>Observação (opcional)</label><textarea id="chk-obs" rows="2"></textarea></div>
-      <button type="submit" class="btn" id="btn-finalizar" style="width:100%;">Finalizar pedido</button>
+      <button type="submit" class="btn" id="btn-finalizar" style="width:100%;">Finalizar no WhatsApp</button>
       <div id="checkout-status"></div>
     </form>
 
@@ -512,59 +511,24 @@ document.getElementById('btn-carrinho').addEventListener('click', abrirCarrinho)
 document.getElementById('btn-fechar-carrinho').addEventListener('click', fecharCarrinho);
 document.getElementById('fundo-carrinho').addEventListener('click', fecharCarrinho);
 
-document.getElementById('form-checkout').addEventListener('submit', async (e) => {
+document.getElementById('form-checkout').addEventListener('submit', (e) => {
   e.preventDefault();
   if (!carrinho.length) return;
 
   const nome = document.getElementById('chk-nome').value.trim();
-  const telefone = document.getElementById('chk-telefone').value.trim();
   const obs = document.getElementById('chk-obs').value.trim();
-  const statusEl = document.getElementById('checkout-status');
-  const btn = document.getElementById('btn-finalizar');
 
-  statusEl.className = ''; statusEl.textContent = '';
+  const resumoItens = carrinho.map(i => `• ${i.quantidade}x ${i.nome}`).join('\n');
+  const total = document.getElementById('total-carrinho').textContent;
+  const linhasTotais = freteEscolhido
+    ? `Frete: ${freteEscolhido.servico} (${fmtMoeda(freteEscolhido.preco)})\nTotal: ${total}`
+    : `Subtotal dos produtos: ${total}\nFrete: a combinar (total final definido no WhatsApp)`;
 
-  if (!freteEscolhido) {
-    statusEl.className = 'erro';
-    statusEl.textContent = 'Calcule e escolha uma opção de frete antes de finalizar.';
-    return;
-  }
+  let mensagem = `Olá! Quero fechar este pedido:\n\n${resumoItens}\n\n${linhasTotais}`;
+  if (nome) mensagem += `\n\nMeu nome: ${nome}`;
+  if (obs) mensagem += `\nObs: ${obs}`;
 
-  btn.disabled = true; btn.textContent = 'Enviando...';
-
-  const itens = carrinho.map(i => ({ produto_id: i.produto_id, quantidade: i.quantidade }));
-
-  try {
-    const { data: pedidoId, error } = await supabaseClient.rpc('criar_pedido_loja', {
-      p_cliente_nome: nome,
-      p_cliente_telefone: telefone,
-      p_itens: itens,
-      p_observacao: obs || null,
-      p_valor_frete: freteEscolhido.preco,
-      p_metodo_frete: freteEscolhido.servico
-    });
-    if (error) throw error;
-
-    const total = document.getElementById('total-carrinho').textContent;
-    const resumoItens = carrinho.map(i => `• ${i.quantidade}x ${i.nome}`).join('\n');
-    const mensagem = `Olá! Acabei de fazer um pedido pelo site (nº ${pedidoId.slice(0,8)}).\n\n${resumoItens}\n\nFrete: ${freteEscolhido.servico} (${fmtMoeda(freteEscolhido.preco)})\nTotal: ${total}\n\nMeu nome: ${nome}`;
-    document.getElementById('link-whatsapp').href = `https://wa.me/${WHATSAPP_NUMERO}?text=${encodeURIComponent(mensagem)}`;
-    document.getElementById('sucesso-texto').textContent = `Recebemos seu pedido (nº ${pedidoId.slice(0,8)}). Toque no botão abaixo pra confirmar e combinar a entrega direto no WhatsApp.`;
-
-    document.getElementById('form-checkout').style.display = 'none';
-    document.getElementById('tela-sucesso').style.display = 'block';
-
-    carrinho = [];
-    freteEscolhido = null;
-    document.getElementById('opcoes-frete').innerHTML = '';
-    document.getElementById('frete-status').textContent = '';
-    salvarCarrinho();
-    renderCarrinho();
-  } catch (err) {
-    statusEl.className = 'erro';
-    statusEl.textContent = 'Não foi possível registrar o pedido: ' + err.message;
-    btn.disabled = false; btn.textContent = 'Finalizar pedido';
-  }
+  window.open(`https://wa.me/${WHATSAPP_NUMERO}?text=${encodeURIComponent(mensagem)}`, '_blank');
 });
 
 renderCarrinho();
