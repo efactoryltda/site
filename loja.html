@@ -223,7 +223,7 @@
       <div id="frete-status" style="font-size:12.5px; color:var(--cor-chocolate-suave); margin-bottom:10px;"></div>
     </div>
 
-    <div class="linha-total"><span>Total</span><span id="total-carrinho">R$ 0,00</span></div>
+    <div class="linha-total"><span id="rotulo-total">Subtotal dos produtos</span><span id="total-carrinho">R$ 0,00</span></div>
 
     <form id="form-checkout">
       <div class="field"><label>Seu nome (opcional)</label><input type="text" id="chk-nome"></div>
@@ -396,6 +396,7 @@ function renderCarrinho(){
 
   if (!carrinho.length) {
     cont.innerHTML = '<p class="vazio">Seu carrinho está vazio.</p>';
+    document.getElementById('rotulo-total').textContent = 'Subtotal dos produtos';
     document.getElementById('total-carrinho').textContent = fmtMoeda(0);
     return;
   }
@@ -422,6 +423,7 @@ function renderCarrinho(){
   }).join('');
 
   if (freteEscolhido) total += freteEscolhido.preco;
+  document.getElementById('rotulo-total').textContent = freteEscolhido ? 'Total' : 'Subtotal dos produtos';
   document.getElementById('total-carrinho').textContent = fmtMoeda(total);
 
   cont.querySelectorAll('.item-carrinho').forEach(el => {
