@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Loja E-Factory</title>
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='10' fill='%232E1508'/%3E%3Cpath d='M20 9l11 4.4v13.2L20 31l-11-4.4V13.4L20 9z' fill='none' stroke='%23DBB069' stroke-width='2' stroke-linejoin='round'/%3E%3Cpath d='M9 13.4L20 18l11-4.6M20 18v13' stroke='%23DBB069' stroke-width='2' stroke-linejoin='round' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="icon" type="image/png" href="favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Work+Sans:wght@400;500;600;700&display=swap">
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
@@ -42,6 +42,8 @@
   .topo-linha{ display:flex; align-items:center; justify-content:space-between; padding:14px 0; gap:16px; }
   .marca{ white-space:nowrap; text-decoration:none; display:flex; align-items:center; gap:10px; font-family:var(--fonte-titulo); font-weight:700; font-size:16px; }
   .marca svg{ width:34px; height:34px; flex-shrink:0; }
+  .marca img.logo-icone{ width:36px; height:auto; flex-shrink:0; }
+  .rodape-loja img.logo-completo{ width:110px; height:auto; display:block; margin:0 auto 10px; }
   #btn-carrinho{
     display:flex; align-items:center; gap:8px; background:var(--cor-chocolate); color:#fff;
     border:none; border-radius:999px; padding:10px 18px; font-weight:600; font-size:14px; cursor:pointer;
@@ -269,11 +271,7 @@
 <header class="topo">
   <div class="container topo-linha">
     <a href="index.html" class="marca" aria-label="E-Factory, voltar ao início">
-      <svg viewBox="0 0 40 40" aria-hidden="true">
-        <rect x="1" y="1" width="38" height="38" rx="10" fill="var(--cor-chocolate)"/>
-        <path d="M20 9l11 4.4v13.2L20 31l-11-4.4V13.4L20 9z" fill="none" stroke="var(--cor-ouro)" stroke-width="2" stroke-linejoin="round"/>
-        <path d="M9 13.4L20 18l11-4.6M20 18v13" stroke="var(--cor-ouro)" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
-      </svg>
+      <img src="logo-icone.png" alt="" class="logo-icone" width="36" height="36">
       <span>E-Factory</span>
     </a>
     <div class="topo-acoes">
@@ -309,6 +307,7 @@
 </section>
 
 <footer class="rodape-loja">
+  <img src="logo-full.png" alt="Logo E-Factory" class="logo-completo">
   E-Factory Group - Ribeirão Preto/SP. Fale com a gente pelo WhatsApp
 </footer>
 
