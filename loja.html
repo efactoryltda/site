@@ -91,6 +91,15 @@
     color:var(--cor-ouro-escuro); font-size:12px; text-align:center; padding:14px;
     border:1.5px dashed var(--cor-ouro-escuro); border-radius:8px; margin:14px;
   }
+  .card-produto .foto .miniaturas{
+    position:absolute; left:8px; bottom:8px; display:flex; gap:6px;
+  }
+  .card-produto .foto .miniaturas button{
+    width:38px; height:38px; padding:0; border:2px solid #fff; border-radius:6px; overflow:hidden;
+    background:var(--cor-paper); cursor:pointer; opacity:0.85; box-shadow:0 1px 4px rgba(0,0,0,0.3);
+  }
+  .card-produto .foto .miniaturas button.ativa{ border-color:var(--cor-ouro-escuro); opacity:1; }
+  .card-produto .foto .miniaturas button img{ width:100%; height:100%; object-fit:cover; display:block; }
   .selo-promo{
     position:absolute; top:8px; left:8px; background:#c24b3c; color:#fff; font-size:11px; font-weight:700;
     padding:3px 9px; border-radius:999px; letter-spacing:0.2px;
@@ -299,9 +308,23 @@ async function carregarProdutos(){
 
 function fotoOuPlaceholder(produto){
   const foto = (produto.fotos && produto.fotos[0]) ? produto.fotos[0].url : null;
-  if (foto) return `<img src="${foto}" alt="${produto.nome}">`;
+  if (foto) {
+    const extras = produto.fotos.length > 1
+      ? `<div class="miniaturas">${produto.fotos.map((f, i) => `<button type="button" class="${i === 0 ? 'ativa' : ''}" data-foto-mini="${f.url}" aria-label="Ver foto ${i + 1}"><img src="${f.url}" alt=""></button>`).join('')}</div>`
+      : '';
+    return `<img data-foto-principal src="${foto}" alt="${produto.nome}">${extras}`;
+  }
   return `<div class="sem-foto">Foto em breve</div>`;
 }
+
+document.addEventListener('click', (e) => {
+  const mini = e.target.closest('[data-foto-mini]');
+  if (!mini) return;
+  const area = mini.closest('.foto');
+  const principal = area.querySelector('[data-foto-principal]');
+  if (principal) principal.src = mini.dataset.fotoMini;
+  area.querySelectorAll('[data-foto-mini]').forEach(b => b.classList.toggle('ativa', b === mini));
+});
 
 function cardProdutoHTML(p){
   const precoBase = precoParaQuantidade(p, 1);
