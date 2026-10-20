@@ -40,7 +40,7 @@
     border-bottom:1px solid var(--cor-linha);
   }
   .topo-linha{ display:flex; align-items:center; justify-content:space-between; padding:14px 0; gap:16px; }
-  .marca{ display:flex; align-items:center; gap:10px; font-family:var(--fonte-titulo); font-weight:700; font-size:16px; }
+  .marca{ white-space:nowrap; text-decoration:none; display:flex; align-items:center; gap:10px; font-family:var(--fonte-titulo); font-weight:700; font-size:16px; }
   .marca svg{ width:34px; height:34px; flex-shrink:0; }
   #btn-carrinho{
     display:flex; align-items:center; gap:8px; background:var(--cor-chocolate); color:#fff;
@@ -67,7 +67,7 @@
   .hero-loja p{ color:var(--cor-chocolate-suave); font-size:16px; max-width:560px; margin:0 auto; }
 
   /* ---------- destaques ---------- */
-  .secao{ padding:28px 0; border-top:2px dashed var(--cor-linha); }
+  .secao{ padding:28px 20px; border-top:2px dashed var(--cor-linha); }
   .secao:first-of-type{ border-top:none; }
   .secao h2{ font-size:20px; margin-bottom:16px; }
   .carrossel-destaques{ display:flex; gap:16px; overflow-x:auto; padding-bottom:8px; }
@@ -171,13 +171,104 @@
   #tela-sucesso a.btn{ display:inline-block; text-decoration:none; }
 
   footer.rodape-loja{ text-align:center; padding:30px 0; color:var(--cor-chocolate-suave); font-size:13px; border-top:2px dashed var(--cor-linha); }
+
+  /* ---------- UX v2 ---------- */
+  html{ scroll-behavior:smooth; }
+  body{ padding-bottom:84px; }
+  a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible{ outline:3px solid var(--cor-ouro-escuro); outline-offset:2px; }
+  .ico{ flex-shrink:0; }
+  .link-ajuda .ico{ margin-right:6px; }
+  .topo-acoes{ display:flex; align-items:center; gap:10px; }
+  .link-ajuda{ font-size:14px; font-weight:600; text-decoration:none; padding:10px 12px; border-radius:999px; border:1px solid var(--cor-linha); background:#fff; white-space:nowrap; min-height:44px; display:inline-flex; align-items:center; }
+  .link-ajuda:hover{ border-color:var(--cor-ouro-escuro); }
+  #btn-carrinho{ min-height:44px; }
+  .beneficios{ display:flex; flex-wrap:wrap; justify-content:center; gap:8px 18px; margin-top:16px; font-size:13.5px; font-weight:600; color:var(--cor-chocolate-suave); }
+  .beneficios span::before{ content:""; display:inline-block; width:5px; height:10px; border:solid var(--cor-ok); border-width:0 2px 2px 0; transform:rotate(45deg); margin:0 8px 2px 0; }
+  .barra-busca{ position:sticky; top:63px; z-index:40; background:var(--cor-fundo); padding:10px 20px; }
+  .barra-busca input{ width:100%; padding:13px 16px; font-size:16px; border:1px solid var(--cor-linha); border-radius:999px; background:#fff; font-family:inherit; color:var(--cor-chocolate); }
+  .barra-busca input::placeholder{ color:#9a8467; }
+  .contagem-resultados{ font-size:13px; color:var(--cor-chocolate-suave); margin:2px 0 12px; }
+  .esqueleto{ height:300px; border-radius:var(--raio-borda); background:linear-gradient(90deg,#f1e6cf 25%,#f8efdc 50%,#f1e6cf 75%); background-size:200% 100%; animation:brilho 1.2s infinite linear; }
+  @keyframes brilho{ to{ background-position:-200% 0; } }
+  .stepper{ display:flex; align-items:stretch; border:1px solid var(--cor-linha); border-radius:999px; overflow:hidden; background:#fff; }
+  .stepper button{ display:flex; align-items:center; justify-content:center; padding:0; width:40px; border:none; background:var(--cor-paper); font-size:20px; font-weight:700; color:var(--cor-chocolate); cursor:pointer; min-height:42px; }
+  .stepper button:hover{ background:var(--cor-ouro-claro); }
+  .stepper input{ min-width:0; width:52px; border:none !important; text-align:center; font-size:16px !important; padding:0 !important; -moz-appearance:textfield; background:#fff; }
+  .stepper input::-webkit-outer-spin-button, .stepper input::-webkit-inner-spin-button{ -webkit-appearance:none; margin:0; }
+  .card-produto .linha-qtd{ gap:8px; }
+  .card-produto .linha-qtd .btn{ min-height:44px; }
+  .card-produto .faixa-info.desc{ display:-webkit-box; -webkit-line-clamp:3; -webkit-box-orient:vertical; overflow:hidden; }
+  .dica-atacado{ font-size:12px; color:var(--cor-ok); font-weight:600; min-height:16px; }
+  .card-produto .foto .miniaturas button{ width:44px; height:44px; }
+  .btn{ min-height:44px; }
+  .barra-carrinho{
+    position:fixed; left:0; right:0; bottom:0; z-index:60; padding:10px 16px calc(10px + env(safe-area-inset-bottom));
+    background:var(--cor-chocolate); color:#fff; display:none; align-items:center; justify-content:space-between; gap:12px;
+    box-shadow:0 -8px 24px -12px rgba(46,21,8,0.5);
+  }
+  .barra-carrinho.visivel{ display:flex; }
+  .barra-carrinho .resumo{ font-size:14px; line-height:1.3; }
+  .barra-carrinho .resumo strong{ display:block; font-family:var(--fonte-titulo); font-size:17px; }
+  .barra-carrinho .btn{ white-space:nowrap; }
+  #toast{ position:fixed; left:50%; bottom:96px; transform:translate(-50%,20px); background:#fff; color:var(--cor-chocolate); border:1px solid var(--cor-linha); border-radius:999px; padding:10px 18px; font-size:14px; font-weight:600; box-shadow:var(--sombra-card); opacity:0; pointer-events:none; transition:opacity .2s, transform .2s; z-index:120; max-width:90vw; text-align:center; }
+  #toast.mostra{ opacity:1; transform:translate(-50%,0); }
+  .item-carrinho .stepper button{ display:flex; align-items:center; justify-content:center; padding:0; min-height:36px; width:36px; }
+  .item-carrinho .stepper input{ width:44px; }
+  .item-carrinho .remover{ padding:8px 0; }
+  .nota-whatsapp{ font-size:13px; color:var(--cor-chocolate-suave); background:var(--cor-paper); border-radius:8px; padding:10px 12px; margin-bottom:12px; line-height:1.4; }
+  details.frete-opcional{ margin-bottom:12px; border:1px solid var(--cor-linha); border-radius:8px; padding:8px 12px; }
+  details.frete-opcional summary{ cursor:pointer; font-size:13.5px; font-weight:600; min-height:28px; display:flex; align-items:center; }
+  details.frete-opcional[open] summary{ margin-bottom:8px; }
+  #form-checkout input, #form-checkout textarea{ font-size:16px; }
+  #btn-finalizar{ min-height:50px; font-size:16px; }
+  .vazio-carrinho{ text-align:center; padding:40px 10px; color:var(--cor-chocolate-suave); }
+  .vazio-carrinho .btn{ margin-top:14px; }
+  .wa-ajuda{ text-align:center; padding:22px 20px 8px; }
+  .wa-ajuda p{ margin:0 0 10px; color:var(--cor-chocolate-suave); font-size:15px; }
+  @media (max-width:520px){
+    .link-ajuda .txt-longo{ display:none; }
+    .topo-linha{ gap:8px; }
+    .container{ padding-left:14px; padding-right:14px; }
+    .secao, .barra-busca{ padding-left:14px; padding-right:14px; }
+    .marca span{ overflow:hidden; text-overflow:ellipsis; }
+    .marca{ min-width:0; flex-shrink:1; }
+    .link-ajuda .ico{ margin-right:0; }
+    .link-ajuda .txt-wa{ display:none; }
+    .topo-acoes{ gap:6px; }
+    .link-ajuda{ padding:10px; font-size:13px; }
+    #btn-carrinho{ padding:10px 12px; }
+    .marca{ font-size:15px; gap:8px; }
+    .marca svg{ width:30px; height:30px; }
+    .grade-produtos{ grid-template-columns:repeat(2,1fr); gap:12px; }
+    .card-produto .corpo{ padding:10px; }
+    .card-produto h3{ font-size:14px; }
+    .preco-atual{ font-size:17px; }
+    .linha-qtd{ flex-direction:column; align-items:stretch; }
+    .linha-qtd .stepper{ justify-content:space-between; }
+    .linha-qtd .stepper input{ flex:1; width:auto; min-width:0; }
+    .linha-qtd input{ width:auto; }
+    .carrossel-destaques .card-produto{ min-width:200px; }
+    #painel-carrinho{ width:100%; }
+  }
+  #painel-carrinho{ overflow-y:auto; }
+  #itens-carrinho{ flex:1 0 auto; min-height:120px; overflow:visible; }
+  .item-carrinho .subtotal{ flex-shrink:0; }
+  .item-carrinho .info{ min-width:0; }
+  .item-carrinho .linha-controle{ flex-wrap:wrap; }
+  @media (max-width:360px){ #btn-carrinho .txt-longo{ display:none; } .link-ajuda{ padding:10px 9px; } }
+  .hero-loja{ padding-top:28px !important; }
+  .linha-total{ gap:12px; align-items:baseline; flex-wrap:wrap; }
+  .linha-total span:last-child{ margin-left:auto; white-space:nowrap; }
+  #painel-carrinho{ visibility:hidden; box-shadow:none; transition:transform .25s ease, visibility 0s linear .25s; }
+  #painel-carrinho.aberto{ visibility:visible; box-shadow:-16px 0 32px -20px rgba(46,21,8,0.4); transition-delay:0s; }
+  @media (prefers-reduced-motion:reduce){ *{ transition:none !important; animation:none !important; } }
 </style>
 </head>
 <body>
 
 <header class="topo">
   <div class="container topo-linha">
-    <a href="index.html" class="marca">
+    <a href="index.html" class="marca" aria-label="E-Factory, voltar ao início">
       <svg viewBox="0 0 40 40" aria-hidden="true">
         <rect x="1" y="1" width="38" height="38" rx="10" fill="var(--cor-chocolate)"/>
         <path d="M20 9l11 4.4v13.2L20 31l-11-4.4V13.4L20 9z" fill="none" stroke="var(--cor-ouro)" stroke-width="2" stroke-linejoin="round"/>
@@ -185,16 +276,24 @@
       </svg>
       <span>E-Factory</span>
     </a>
-    <button id="btn-carrinho">
-      🛒 Carrinho <span id="contador-carrinho">0</span>
-    </button>
+    <div class="topo-acoes">
+      <a class="link-ajuda" aria-label="Falar no WhatsApp" href="https://wa.me/5516981778273?text=Ol%C3%A1%21+Preciso+de+ajuda+com+a+loja+da+E-Factory." target="_blank" rel="noopener"><svg class="ico" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.200zm4.5-6.100c-.2-.1-1.500-.7-1.700-.8-.2-.1-.4-.1-.6.100l-.8 1c-.1.200-.3.200-.5.100a6.700 6.700 0 0 1-3.300-2.900c-.2-.4.200-.4.700-1.300.1-.2 0-.3 0-.5l-.8-1.800c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.300 3 3 0 0 0-.9 2.200 5.200 5.200 0 0 0 1.100 2.800 11.800 11.800 0 0 0 4.500 4c1.700.700 2.300.8 3.200.600a2.700 2.700 0 0 0 1.800-1.300 2.200 2.200 0 0 0 .2-1.300c-.1-.1-.2-.2-.5-.3z"/></svg><span class="txt-longo">Falar no&nbsp;</span><span class="txt-wa">WhatsApp</span></a>
+      <button id="btn-carrinho" aria-label="Abrir carrinho">
+        <svg class="ico" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M3 4h2.500l2.300 11h10.400l2-8H6.500M9.500 20a1 1 0 1 0 0 .01M17 20a1 1 0 1 0 0 .01"/></svg><span class="txt-longo">Carrinho </span><span id="contador-carrinho">0</span>
+      </button>
+    </div>
   </div>
 </header>
 
 <section class="hero-loja container">
   <h1>Caixas e etiquetas, direto da fábrica</h1>
-  <p>Escolha a quantidade e o preço já cai automaticamente pra faixa de atacado — sem precisar pedir orçamento.</p>
+  <p>Escolha a quantidade e o preço já cai automaticamente pra faixa de atacado, sem precisar pedir orçamento.</p>
+  <div class="beneficios"><span>Preço de atacado automático</span><span>Fechamento rápido pelo WhatsApp</span><span>Retirada ou envio</span></div>
 </section>
+
+<div class="container barra-busca">
+  <input type="search" id="busca" placeholder="Buscar produto (ex.: caixa, etiqueta, sacola)" aria-label="Buscar produto" autocomplete="off">
+</div>
 
 <section class="secao container" id="secao-destaques" style="display:none;">
   <h2>Destaques</h2>
@@ -203,51 +302,55 @@
 
 <section class="secao container">
   <h2>Todos os produtos</h2>
-  <div class="grade-produtos" id="grade-produtos"></div>
-  <div class="vazio" id="loja-vazia" style="display:none;">Nenhum produto disponível na loja no momento.</div>
+  <div class="contagem-resultados" id="contagem-resultados" aria-live="polite"></div>
+  <div class="grade-produtos" id="grade-produtos"><div class="esqueleto"></div><div class="esqueleto"></div><div class="esqueleto"></div><div class="esqueleto"></div></div>
+  <div class="vazio" id="loja-vazia" style="display:none;">Nenhum produto encontrado. Tente outra palavra ou fale com a gente no WhatsApp.</div>
+  <div class="wa-ajuda"><p>Não achou o que precisa? Medida especial ou quantidade grande?</p><a class="btn" style="display:inline-block;text-decoration:none;" href="https://wa.me/5516981778273?text=Ol%C3%A1%21+Preciso+de+um+or%C3%A7amento+de+embalagens." target="_blank" rel="noopener">Pedir orçamento no WhatsApp</a></div>
 </section>
 
 <footer class="rodape-loja">
-  E-Factory Group — Ribeirão Preto/SP · Fale com a gente pelo WhatsApp
+  E-Factory Group - Ribeirão Preto/SP. Fale com a gente pelo WhatsApp
 </footer>
 
 <!-- ---------- Carrinho ---------- -->
 <div id="fundo-carrinho"></div>
-<aside id="painel-carrinho">
+<aside id="painel-carrinho" role="dialog" aria-modal="true" aria-label="Seu carrinho">
   <div class="painel-cabecalho">
     <h2>Seu carrinho</h2>
-    <button id="btn-fechar-carrinho">×</button>
+    <button id="btn-fechar-carrinho" aria-label="Fechar carrinho" style="min-width:44px;min-height:44px;"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M5 5l14 14M19 5L5 19" stroke="currentColor" stroke-width="2.200" stroke-linecap="round"/></svg></button>
   </div>
 
   <div id="itens-carrinho"></div>
 
   <div class="rodape-carrinho" id="rodape-carrinho">
+    <div class="nota-whatsapp">Você não paga nada aqui. Ao tocar em <strong>Finalizar no WhatsApp</strong>, enviamos seu pedido pronto e combinamos pagamento e entrega por lá.</div>
+    <details class="frete-opcional"><summary>Calcular frete (opcional)</summary>
     <div class="bloco-frete">
       <label for="chk-cep" style="font-size:12px; color:var(--cor-chocolate-suave); display:block; margin-bottom:4px;">CEP de entrega</label>
       <div style="display:flex; gap:8px; margin-bottom:8px;">
-        <input type="text" id="chk-cep" placeholder="00000-000" maxlength="9" style="flex:1; padding:9px 10px; border:1px solid var(--cor-linha); border-radius:6px; font-size:14px;">
+        <input type="text" id="chk-cep" placeholder="00000-000" maxlength="9" inputmode="numeric" autocomplete="postal-code" style="flex:1; padding:9px 10px; border:1px solid var(--cor-linha); border-radius:6px; font-size:16px; min-width:0;">
         <button type="button" class="btn secundario" id="btn-calcular-frete">Calcular frete</button>
       </div>
       <div id="opcoes-frete"></div>
       <div id="frete-status" style="font-size:12.5px; color:var(--cor-chocolate-suave); margin-bottom:10px;"></div>
-    </div>
+    </div></details>
 
     <div class="linha-total"><span id="rotulo-total">Subtotal dos produtos</span><span id="total-carrinho">R$ 0,00</span></div>
 
     <form id="form-checkout">
-      <div class="field"><label>Seu nome (opcional)</label><input type="text" id="chk-nome"></div>
+      <div class="field"><label>Seu nome (opcional)</label><input type="text" id="chk-nome" autocomplete="name"></div>
       <div class="field"><label>Observação (opcional)</label><textarea id="chk-obs" rows="2"></textarea></div>
       <button type="submit" class="btn" id="btn-finalizar" style="width:100%;">Finalizar no WhatsApp</button>
       <div id="checkout-status"></div>
     </form>
-
-    <div id="tela-sucesso">
-      <h3>Pedido registrado! 🎉</h3>
-      <p id="sucesso-texto"></p>
-      <a class="btn" id="link-whatsapp" href="#" target="_blank">Confirmar no WhatsApp</a>
-    </div>
   </div>
 </aside>
+
+<div class="barra-carrinho" id="barra-carrinho">
+  <div class="resumo"><span id="barra-itens">0 itens</span><strong id="barra-total">R$ 0,00</strong></div>
+  <button class="btn" id="btn-barra-carrinho" type="button">Ver carrinho e finalizar</button>
+</div>
+<div id="toast" role="status" aria-live="polite"></div>
 
 <script>
 // ============================================================
@@ -312,7 +415,7 @@ function fotoOuPlaceholder(produto){
     const extras = produto.fotos.length > 1
       ? `<div class="miniaturas">${produto.fotos.map((f, i) => `<button type="button" class="${i === 0 ? 'ativa' : ''}" data-foto-mini="${f.url}" aria-label="Ver foto ${i + 1}"><img src="${f.url}" alt=""></button>`).join('')}</div>`
       : '';
-    return `<img data-foto-principal src="${foto}" alt="${produto.nome}">${extras}`;
+    return `<img data-foto-principal loading="lazy" src="${foto}" alt="${produto.nome}">${extras}`;
   }
   return `<div class="sem-foto">Foto em breve</div>`;
 }
@@ -338,14 +441,14 @@ function cardProdutoHTML(p){
       </div>
       <div class="corpo">
         <h3>${p.nome}</h3>
-        ${p.descricao ? `<div class="faixa-info">${p.descricao}</div>` : ''}
+        ${p.descricao ? `<div class="faixa-info desc">${p.descricao}</div>` : ''}
         <div class="preco-linha">
           <span class="preco-atual" data-preco>${fmtMoeda(precoBase)}</span>
           ${temPromo ? `<span class="preco-riscado">${fmtMoeda(p.preco_venda)}</span>` : ''}
         </div>
-        <div class="faixa-info" data-dica>${dica}</div>
+        <div class="dica-atacado" data-dica>${dica}</div>
         <div class="linha-qtd">
-          <input type="number" min="1" step="1" value="1" data-qtd>
+          <div class="stepper"><button type="button" data-menos aria-label="Diminuir quantidade"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M5 12h14" stroke="currentColor" stroke-width="2.500" stroke-linecap="round"/></svg></button><input type="number" inputmode="numeric" min="1" step="1" value="1" data-qtd aria-label="Quantidade"><button type="button" data-mais aria-label="Aumentar quantidade"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M5 12h14M12 5v14" stroke="currentColor" stroke-width="2.500" stroke-linecap="round"/></svg></button></div>
           <button class="btn" data-add style="flex:1;">Adicionar</button>
         </div>
       </div>
@@ -357,18 +460,25 @@ function renderDestaques(){
   const destaques = produtos.filter(p => p.destaque);
   const secao = document.getElementById('secao-destaques');
   const lista = document.getElementById('lista-destaques');
-  if (!destaques.length) { secao.style.display = 'none'; return; }
+  if (!destaques.length || termoBusca) { secao.style.display = 'none'; return; }
   secao.style.display = 'block';
   lista.innerHTML = destaques.map(cardProdutoHTML).join('');
   ligarEventosCards(lista);
 }
 
+let termoBusca = '';
+function norm(t){ return (t || '').toString().normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase(); }
 function renderGrade(){
   const grade = document.getElementById('grade-produtos');
-  document.getElementById('loja-vazia').style.display = produtos.length ? 'none' : 'block';
-  grade.innerHTML = produtos.map(cardProdutoHTML).join('');
+  const q = norm(termoBusca).trim();
+  const lista = q ? produtos.filter(p => norm(p.nome + ' ' + (p.descricao || '')).includes(q)) : produtos;
+  document.getElementById('loja-vazia').style.display = lista.length ? 'none' : 'block';
+  document.getElementById('contagem-resultados').textContent = produtos.length ? (q ? `${lista.length} de ${produtos.length} produtos` : `${produtos.length} produtos`) : '';
+  document.getElementById('secao-destaques').style.display = (q || !produtos.some(p => p.destaque)) ? 'none' : 'block';
+  grade.innerHTML = lista.map(cardProdutoHTML).join('');
   ligarEventosCards(grade);
 }
+document.getElementById('busca').addEventListener('input', (e) => { termoBusca = e.target.value; renderGrade(); });
 
 function ligarEventosCards(container){
   container.querySelectorAll('.card-produto').forEach(card => {
@@ -384,14 +494,17 @@ function ligarEventosCards(container){
       dicaEl.textContent = proximaFaixaTexto(produto, qtd);
     });
 
+    card.querySelector('[data-menos]').addEventListener('click', () => { inputQtd.value = Math.max(1, (parseInt(inputQtd.value) || 1) - 1); inputQtd.dispatchEvent(new Event('input')); });
+    card.querySelector('[data-mais]').addEventListener('click', () => { inputQtd.value = (parseInt(inputQtd.value) || 1) + 1; inputQtd.dispatchEvent(new Event('input')); });
     card.querySelector('[data-add]').addEventListener('click', () => {
       const qtd = Math.max(1, parseInt(inputQtd.value) || 1);
-      adicionarAoCarrinho(produto, qtd);
+      adicionarAoCarrinho(produto, qtd, false);
+      inputQtd.value = 1; inputQtd.dispatchEvent(new Event('input'));
     });
   });
 }
 
-function adicionarAoCarrinho(produto, quantidade){
+function adicionarAoCarrinho(produto, quantidade, abrir){
   const existente = carrinho.find(i => i.produto_id === produto.id);
   if (existente) {
     existente.quantidade += quantidade;
@@ -401,7 +514,14 @@ function adicionarAoCarrinho(produto, quantidade){
   limparFreteEscolhido();
   salvarCarrinho();
   renderCarrinho();
-  abrirCarrinho();
+  mostrarToast(`${quantidade}x ${produto.nome} adicionado`);
+  if (abrir) abrirCarrinho();
+}
+let toastTimer;
+function mostrarToast(txt){
+  const t = document.getElementById('toast');
+  t.textContent = txt; t.classList.add('mostra');
+  clearTimeout(toastTimer); toastTimer = setTimeout(() => t.classList.remove('mostra'), 2200);
 }
 
 // Qualquer mudança no carrinho invalida o frete já calculado (peso/quantidade mudou).
@@ -410,7 +530,7 @@ function limparFreteEscolhido(){
   const opcoes = document.getElementById('opcoes-frete');
   const status = document.getElementById('frete-status');
   if (opcoes) opcoes.innerHTML = '';
-  if (status) status.textContent = carrinho.length ? 'Informe o CEP e calcule o frete antes de finalizar.' : '';
+  if (status) status.textContent = '';
 }
 
 function renderCarrinho(){
@@ -418,12 +538,16 @@ function renderCarrinho(){
   document.getElementById('contador-carrinho').textContent = carrinho.reduce((s,i) => s + i.quantidade, 0);
 
   if (!carrinho.length) {
-    cont.innerHTML = '<p class="vazio">Seu carrinho está vazio.</p>';
+    cont.innerHTML = '<div class="vazio-carrinho"><p>Seu carrinho está vazio.</p><button type="button" class="btn" id="btn-continuar-vazio">Ver produtos</button></div>';
+    const bv = document.getElementById('btn-continuar-vazio'); if (bv) bv.addEventListener('click', fecharCarrinho);
+    atualizarBarra(0, 0);
+    document.getElementById('rodape-carrinho').style.display = 'none';
     document.getElementById('rotulo-total').textContent = 'Subtotal dos produtos';
     document.getElementById('total-carrinho').textContent = fmtMoeda(0);
     return;
   }
 
+  document.getElementById('rodape-carrinho').style.display = '';
   let total = 0;
   cont.innerHTML = carrinho.map((item, idx) => {
     const produto = produtos.find(p => p.id === item.produto_id);
@@ -436,7 +560,7 @@ function renderCarrinho(){
         <div class="info">
           <h4>${item.nome}</h4>
           <div class="linha-controle">
-            <input type="number" min="1" step="1" value="${item.quantidade}" data-qtd-carrinho>
+            <div class="stepper"><button type="button" data-c-menos aria-label="Diminuir"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M5 12h14" stroke="currentColor" stroke-width="2.500" stroke-linecap="round"/></svg></button><input type="number" inputmode="numeric" min="1" step="1" value="${item.quantidade}" data-qtd-carrinho aria-label="Quantidade de ${item.nome}"><button type="button" data-c-mais aria-label="Aumentar"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M5 12h14M12 5v14" stroke="currentColor" stroke-width="2.500" stroke-linecap="round"/></svg></button></div>
             <button class="remover" data-remover>remover</button>
           </div>
         </div>
@@ -448,6 +572,7 @@ function renderCarrinho(){
   if (freteEscolhido) total += freteEscolhido.preco;
   document.getElementById('rotulo-total').textContent = freteEscolhido ? 'Total' : 'Subtotal dos produtos';
   document.getElementById('total-carrinho').textContent = fmtMoeda(total);
+  atualizarBarra(carrinho.reduce((s,i) => s + i.quantidade, 0), total);
 
   cont.querySelectorAll('.item-carrinho').forEach(el => {
     const idx = parseInt(el.dataset.idx);
@@ -458,6 +583,8 @@ function renderCarrinho(){
       salvarCarrinho();
       renderCarrinho();
     });
+    el.querySelector('[data-c-menos]').addEventListener('click', () => { carrinho[idx].quantidade = Math.max(1, carrinho[idx].quantidade - 1); limparFreteEscolhido(); salvarCarrinho(); renderCarrinho(); });
+    el.querySelector('[data-c-mais]').addEventListener('click', () => { carrinho[idx].quantidade += 1; limparFreteEscolhido(); salvarCarrinho(); renderCarrinho(); });
     el.querySelector('[data-remover]').addEventListener('click', () => {
       carrinho.splice(idx, 1);
       limparFreteEscolhido();
@@ -465,6 +592,13 @@ function renderCarrinho(){
       renderCarrinho();
     });
   });
+}
+
+function atualizarBarra(qtd, total){
+  const b = document.getElementById('barra-carrinho');
+  b.classList.toggle('visivel', qtd > 0);
+  document.getElementById('barra-itens').textContent = qtd + (qtd === 1 ? ' item' : ' itens') + (freteEscolhido ? '' : ' · subtotal');
+  document.getElementById('barra-total').textContent = fmtMoeda(total);
 }
 
 async function calcularFrete(){
@@ -507,7 +641,7 @@ async function calcularFrete(){
     opcoesEl.innerHTML = dados.opcoes.map((o, idx) => `
       <label class="opcao-frete">
         <input type="radio" name="opcao-frete" value="${idx}">
-        <span class="nome-frete">${o.transportadora ? o.transportadora + ' — ' : ''}${o.servico}${o.prazo_dias ? ` (${o.prazo_dias} dia${o.prazo_dias > 1 ? 's' : ''} úteis)` : ''}</span>
+        <span class="nome-frete">${o.transportadora ? o.transportadora + ' - ' : ''}${o.servico}${o.prazo_dias ? ` (${o.prazo_dias} dia${o.prazo_dias > 1 ? 's' : ''} úteis)` : ''}</span>
         <span class="preco-frete">${fmtMoeda(o.preco)}</span>
       </label>
     `).join('');
@@ -526,14 +660,16 @@ async function calcularFrete(){
 document.getElementById('btn-calcular-frete').addEventListener('click', calcularFrete);
 
 function abrirCarrinho(){
-  document.getElementById('painel-carrinho').classList.add('aberto');
+  document.getElementById('painel-carrinho').classList.add('aberto'); document.body.style.overflow = 'hidden';
   document.getElementById('fundo-carrinho').classList.add('aberto');
 }
 function fecharCarrinho(){
-  document.getElementById('painel-carrinho').classList.remove('aberto');
+  document.getElementById('painel-carrinho').classList.remove('aberto'); document.body.style.overflow = '';
   document.getElementById('fundo-carrinho').classList.remove('aberto');
 }
 document.getElementById('btn-carrinho').addEventListener('click', abrirCarrinho);
+document.getElementById('btn-barra-carrinho').addEventListener('click', abrirCarrinho);
+document.addEventListener('keydown', (e) => { if (e.key === 'Escape') fecharCarrinho(); });
 document.getElementById('btn-fechar-carrinho').addEventListener('click', fecharCarrinho);
 document.getElementById('fundo-carrinho').addEventListener('click', fecharCarrinho);
 
@@ -544,7 +680,7 @@ document.getElementById('form-checkout').addEventListener('submit', (e) => {
   const nome = document.getElementById('chk-nome').value.trim();
   const obs = document.getElementById('chk-obs').value.trim();
 
-  const resumoItens = carrinho.map(i => `• ${i.quantidade}x ${i.nome}`).join('\n');
+  const resumoItens = carrinho.map(i => `- ${i.quantidade}x ${i.nome}`).join('\n');
   const total = document.getElementById('total-carrinho').textContent;
   const linhasTotais = freteEscolhido
     ? `Frete: ${freteEscolhido.servico} (${fmtMoeda(freteEscolhido.preco)})\nTotal: ${total}`
@@ -557,6 +693,7 @@ document.getElementById('form-checkout').addEventListener('submit', (e) => {
   window.open(`https://wa.me/${WHATSAPP_NUMERO}?text=${encodeURIComponent(mensagem)}`, '_blank');
 });
 
+try { const q0 = new URLSearchParams(location.search).get('q'); if (q0) { termoBusca = q0; document.getElementById('busca').value = q0; } } catch (e) {}
 renderCarrinho();
 carregarProdutos();
 </script>
