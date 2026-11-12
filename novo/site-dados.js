@@ -20,14 +20,9 @@
   function aplicarBanner(b) {
     if (!b || !b.imagem_url) return;
     const stage = document.querySelector('.hero__stage');
-    const hero = document.querySelector('.hero');
     if (stage) {
-      const foto = `<picture>${b.imagem_mobile_url ? `<source media="(max-width: 639px)" srcset="${esc(b.imagem_mobile_url)}">` : ''}<img src="${esc(b.imagem_url)}" alt="${esc(b.titulo || 'Caixas, sacos e etiquetas de envio da E-Factory')}" fetchpriority="high"></picture>`;
-      // sem título: a arte é o banner inteiro, e clicar nela leva ao link do botão
-      stage.innerHTML = b.titulo ? foto : `<a href="${esc(b.botao_link || 'loja.html')}">${foto}</a>`;
+      stage.innerHTML = `<picture>${b.imagem_mobile_url ? `<source media="(max-width: 639px)" srcset="${esc(b.imagem_mobile_url)}">` : ''}<img src="${esc(b.imagem_url)}" alt="${esc(b.titulo || 'Embalagens E-Factory')}" fetchpriority="high"></picture>`;
       stage.classList.add('hero__stage--foto');
-      if (hero) hero.classList.add('hero--banner');
-      if (hero && !b.titulo) hero.classList.add('hero--so-imagem');
     }
     if (b.titulo) document.getElementById('hero-h').textContent = b.titulo;
     if (b.frase) { const l = document.querySelector('.hero__lead'); if (l) l.textContent = b.frase; }

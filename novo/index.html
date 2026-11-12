@@ -76,19 +76,9 @@
   #atacado .frame[data-product] { height: min(480px, 54vh); }
   .mascote { width: min(100%, 334px); height: auto; margin-top: var(--s-5); }
   .hero--product .hero__stage > #linha { inset: -7% 0 0; }
-  /* banner com foto vinda do ERP (aba Site): a imagem aparece INTEIRA, na proporção dela, de borda a borda;
-     nada é recortado (a arte pode trazer texto e botão desenhados) */
-  html main > .hero.hero--banner { height: auto; min-height: 0; }
-  html main > .hero.hero--banner > .wrap, html main > .hero.hero--banner .hero-text { height: auto; }
-  html main .hero--product .hero__stage.hero__stage--foto {
-    position: relative; flex: none; min-height: 0; aspect-ratio: auto; overflow: hidden;
-    margin-inline: calc(50% - 50vw); margin-bottom: 0; border-radius: 0; background: none; }
-  .hero__stage--foto a, .hero__stage--foto picture { display: block; }
-  .hero__stage--foto img { position: static; display: block; width: 100%; height: auto; max-height: none; object-fit: contain; }
-  /* sem título no ERP: a arte já traz o texto, então o título do site fica só para leitores de tela e buscadores */
-  .hero--so-imagem .hero__head { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
-  html main .hero--so-imagem .hero__stage.hero__stage--foto { margin-top: 0; }
-  main > .hero.hero--so-imagem { padding-top: var(--nav); padding-bottom: 0; }
+  /* banner com foto vinda do ERP (aba Site) */
+  .hero--product .hero__stage.hero__stage--foto { border-radius: var(--r-lg); overflow: hidden; background: var(--surface); }
+  .hero__stage--foto picture, .hero__stage--foto img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
   /* fotos reais das categorias e da vitrine ocupam o quadro inteiro */
   #vitrine .tile__media { background: var(--surface); }
   #vitrine .tile__media > img { object-fit: contain; padding: var(--s-5); }
