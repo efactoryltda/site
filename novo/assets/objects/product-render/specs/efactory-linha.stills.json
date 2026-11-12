@@ -1,0 +1,211 @@
+{
+ "id": "efactory-linha",
+ "made": "2026-11-12T22:03:05.338Z",
+ "px": 1000,
+ "grounds": [
+  "light"
+ ],
+ "colors": [
+  "page"
+ ],
+ "variants": {
+  "three-quarter": {
+   "view": "three-quarter",
+   "scene": null,
+   "off": false,
+   "grounds": [
+    "light"
+   ],
+   "stills": {
+    "light": {
+     "page": {
+      "file": "stills/efactory-linha-three-quarter-page.webp",
+      "half": "stills/efactory-linha-three-quarter-page-half.webp",
+      "w": 1044,
+      "h": 652
+     }
+    }
+   },
+   "box": [
+    0.0201,
+    0.0092,
+    0.9808,
+    0.9433
+   ],
+   "px": 1000
+  },
+  "detail-rolo": {
+   "view": "detail-rolo",
+   "scene": null,
+   "off": false,
+   "grounds": [
+    "light"
+   ],
+   "stills": {
+    "light": {
+     "page": {
+      "file": "stills/efactory-linha-detail-rolo-page.webp",
+      "half": "stills/efactory-linha-detail-rolo-page-half.webp",
+      "w": 1667,
+      "h": 1278
+     }
+    }
+   },
+   "box": [
+    0,
+    0.1886,
+    0.7882,
+    1
+   ],
+   "focus": [
+    0.2939,
+    0.1871,
+    0.7061,
+    0.8129
+   ],
+   "cut": [
+    1,
+    0,
+    0,
+    1
+   ],
+   "px": 1000
+  },
+  "detail-caixa": {
+   "view": "detail-caixa",
+   "scene": null,
+   "off": false,
+   "grounds": [
+    "light"
+   ],
+   "stills": {
+    "light": {
+     "page": {
+      "file": "stills/efactory-linha-detail-caixa-page.webp",
+      "half": "stills/efactory-linha-detail-caixa-page-half.webp",
+      "w": 1595,
+      "h": 1488
+     }
+    }
+   },
+   "box": [
+    0,
+    0,
+    1,
+    0.9126
+   ],
+   "focus": [
+    0.2493,
+    0.2427,
+    0.7507,
+    0.7573
+   ],
+   "cut": [
+    1,
+    1,
+    1,
+    0
+   ],
+   "px": 1000
+  },
+  "detail-sacos": {
+   "view": "detail-sacos",
+   "scene": null,
+   "off": false,
+   "grounds": [
+    "light"
+   ],
+   "stills": {
+    "light": {
+     "page": {
+      "file": "stills/efactory-linha-detail-sacos-page.webp",
+      "half": "stills/efactory-linha-detail-sacos-page-half.webp",
+      "w": 1250,
+      "h": 1550
+     }
+    }
+   },
+   "box": [
+    0.1656,
+    0,
+    1,
+    0.6348
+   ],
+   "focus": [
+    0.1667,
+    0.3656,
+    0.8333,
+    0.6344
+   ],
+   "cut": [
+    0,
+    1,
+    1,
+    0
+   ],
+   "px": 1000
+  },
+  "three-quarter-expedicao": {
+   "view": "three-quarter",
+   "scene": "expedicao",
+   "off": false,
+   "grounds": [
+    "light"
+   ],
+   "stills": {
+    "light": {
+     "page": {
+      "file": "stills/efactory-linha-three-quarter-expedicao-page.webp",
+      "half": "stills/efactory-linha-three-quarter-expedicao-page-half.webp",
+      "w": 1022,
+      "h": 484
+     }
+    }
+   },
+   "box": [
+    0.0059,
+    0.0124,
+    0.9843,
+    0.9876
+   ],
+   "px": 1000
+  },
+  "lateral": {
+   "view": "lateral",
+   "scene": null,
+   "off": false,
+   "grounds": [
+    "light"
+   ],
+   "stills": {
+    "light": {
+     "page": {
+      "file": "stills/efactory-linha-lateral-page.webp",
+      "half": "stills/efactory-linha-lateral-page-half.webp",
+      "w": 1100,
+      "h": 711
+     }
+    }
+   },
+   "box": [
+    0.0773,
+    0.0098,
+    0.9236,
+    0.9916
+   ],
+   "focus": [
+    0.0792,
+    0.0109,
+    0.9208,
+    0.9891
+   ],
+   "cut": [
+    0,
+    0,
+    0,
+    0
+   ],
+   "px": 1000
+  }
+ }
+}

@@ -1,0 +1,516 @@
+{
+ "id": "efactory-linha",
+ "name": "Linha E-Factory",
+ "label": "Três caixas de papelão kraft empilhadas, dois rolos de etiqueta térmica e uma pilha de sacos de envio pretos",
+ "units": "m",
+ "angle": -30,
+ "camera": {
+  "elev": 16
+ },
+ "turn": {
+  "mode": "sway",
+  "amp": 14,
+  "period": 26
+ },
+ "views": {
+  "detail-rolo": {
+   "part": [
+    "rolo em pe*"
+   ],
+   "angle": -18,
+   "elev": 20,
+   "margin": 1.25,
+   "cover": 1.4
+  },
+  "detail-caixa": {
+   "part": [
+    "caixa d3*",
+    "fita d3"
+   ],
+   "angle": -40,
+   "elev": 24,
+   "margin": 1.25,
+   "cover": 1.4
+  },
+  "lateral": {
+   "part": [
+    "caixa*",
+    "vinco*",
+    "fita*",
+    "rolo*",
+    "saco*",
+    "etiqueta*"
+   ],
+   "angle": -64,
+   "elev": 14,
+   "margin": 1.08,
+   "cover": 1
+  }
+ },
+ "scenes": {
+  "expedicao": {
+   "label": "Caixas de papelão sobre uma bancada de madeira, uma delas fechada com fita e etiqueta de envio, ao lado de um rolo de etiqueta térmica",
+   "hide": [
+    "saco 1",
+    "saco 2",
+    "saco 3",
+    "saco 4",
+    "caixa d3",
+    "caixa d3 vinco",
+    "fita d3",
+    "rolo em pe",
+    "rolo em pe tubete",
+    "rolo em pe furo"
+   ],
+   "props": [
+    {
+     "prop": "desk",
+     "at": [
+      0.08,
+      -0.03,
+      0.02
+     ],
+     "size": [
+      0.92,
+      0.03,
+      0.5
+     ],
+     "color": "#b07a4a"
+    },
+    {
+     "prop": "parcel",
+     "at": [
+      0.15,
+      0,
+      0.03
+     ],
+     "size": [
+      0.19,
+      0.12,
+      0.12
+     ],
+     "yaw": -14,
+     "color": "#b6864f"
+    }
+   ]
+  }
+ },
+ "supports": [
+  "three-quarter",
+  "lateral",
+  "detail-rolo",
+  "detail-caixa"
+ ],
+ "make": {
+  "variants": [
+   "three-quarter",
+   "lateral",
+   "detail-rolo",
+   "detail-caixa",
+   "three-quarter+expedicao"
+  ],
+  "grounds": [
+   "light"
+  ],
+  "px": 1100
+ },
+ "materials": {
+  "kraft": {
+   "kind": "paint",
+   "color": "#b6864f",
+   "finish": "matte"
+  },
+  "kraft escuro": {
+   "kind": "paint",
+   "color": "#a77a49",
+   "finish": "matte"
+  },
+  "vinco": {
+   "kind": "paint",
+   "color": "#7d5631",
+   "finish": "matte"
+  },
+  "fita": {
+   "kind": "plastic",
+   "color": "#d6b27c"
+  },
+  "papel termico": {
+   "kind": "paint",
+   "color": "#f5f3ee",
+   "finish": "satin"
+  },
+  "tubete": {
+   "kind": "paint",
+   "color": "#b48552",
+   "finish": "matte"
+  },
+  "furo": {
+   "kind": "paint",
+   "color": "#2b1d12",
+   "finish": "matte"
+  },
+  "saco": {
+   "kind": "plastic",
+   "color": "#1d1b1a"
+  },
+  "lacre": {
+   "kind": "plastic",
+   "color": "#2e2b29"
+  }
+ },
+ "parts": [
+  {
+   "name": "caixa d17",
+   "type": "box",
+   "at": [
+    -0.12,
+    0.08,
+    -0.08
+   ],
+   "size": [
+    0.29,
+    0.16,
+    0.14
+   ],
+   "round": 0.004,
+   "mat": "kraft"
+  },
+  {
+   "name": "vinco d17",
+   "type": "box",
+   "at": [
+    -0.12,
+    0.1603,
+    -0.08
+   ],
+   "size": [
+    0.29,
+    0.0012,
+    0.0025
+   ],
+   "mat": "vinco"
+  },
+  {
+   "name": "fita d17",
+   "type": "box",
+   "at": [
+    -0.12,
+    0.1608,
+    -0.08
+   ],
+   "size": [
+    0.31,
+    0.0008,
+    0.045
+   ],
+   "round": 0.0003,
+   "mat": "fita"
+  },
+  {
+   "name": "caixa d6",
+   "type": "box",
+   "at": [
+    -0.11,
+    0.211,
+    -0.075
+   ],
+   "size": [
+    0.24,
+    0.1,
+    0.15
+   ],
+   "round": 0.004,
+   "rot": [
+    0,
+    8,
+    0
+   ],
+   "mat": "kraft escuro"
+  },
+  {
+   "name": "vinco d6",
+   "type": "box",
+   "at": [
+    -0.11,
+    0.2613,
+    -0.075
+   ],
+   "size": [
+    0.24,
+    0.0012,
+    0.0025
+   ],
+   "rot": [
+    0,
+    8,
+    0
+   ],
+   "mat": "vinco"
+  },
+  {
+   "name": "fita d6",
+   "type": "box",
+   "at": [
+    -0.11,
+    0.2618,
+    -0.075
+   ],
+   "size": [
+    0.26,
+    0.0008,
+    0.045
+   ],
+   "round": 0.0003,
+   "rot": [
+    0,
+    8,
+    0
+   ],
+   "mat": "fita"
+  },
+  {
+   "name": "caixa d3",
+   "type": "box",
+   "at": [
+    0.16,
+    0.06,
+    0.02
+   ],
+   "size": [
+    0.19,
+    0.12,
+    0.12
+   ],
+   "round": 0.004,
+   "rot": [
+    0,
+    -14,
+    0
+   ],
+   "mat": "kraft"
+  },
+  {
+   "name": "caixa d3 vinco",
+   "type": "box",
+   "at": [
+    0.16,
+    0.1203,
+    0.02
+   ],
+   "size": [
+    0.19,
+    0.0012,
+    0.0025
+   ],
+   "rot": [
+    0,
+    -14,
+    0
+   ],
+   "mat": "vinco"
+  },
+  {
+   "name": "fita d3",
+   "type": "box",
+   "at": [
+    0.16,
+    0.1208,
+    0.02
+   ],
+   "size": [
+    0.21,
+    0.0008,
+    0.045
+   ],
+   "round": 0.0003,
+   "rot": [
+    0,
+    -14,
+    0
+   ],
+   "mat": "fita"
+  },
+  {
+   "name": "rolo em pe",
+   "type": "cylinder",
+   "at": [
+    0.33,
+    0.051,
+    -0.07
+   ],
+   "r": 0.058,
+   "h": 0.102,
+   "round": 0.003,
+   "axis": "y",
+   "mat": "papel termico"
+  },
+  {
+   "name": "rolo em pe tubete",
+   "type": "cylinder",
+   "at": [
+    0.33,
+    0.0515,
+    -0.07
+   ],
+   "r": 0.021,
+   "h": 0.103,
+   "round": 0.001,
+   "axis": "y",
+   "mat": "tubete"
+  },
+  {
+   "name": "rolo em pe furo",
+   "type": "cylinder",
+   "at": [
+    0.33,
+    0.052,
+    -0.07
+   ],
+   "r": 0.017,
+   "h": 0.1045,
+   "axis": "y",
+   "mat": "furo"
+  },
+  {
+   "name": "rolo deitado",
+   "type": "cylinder",
+   "at": [
+    0.36,
+    0.05,
+    0.12
+   ],
+   "r": 0.05,
+   "h": 0.102,
+   "round": 0.003,
+   "axis": "z",
+   "mat": "papel termico"
+  },
+  {
+   "name": "rolo deitado tubete",
+   "type": "cylinder",
+   "at": [
+    0.36,
+    0.05,
+    0.12
+   ],
+   "r": 0.021,
+   "h": 0.103,
+   "round": 0.001,
+   "axis": "z",
+   "mat": "tubete"
+  },
+  {
+   "name": "rolo deitado furo",
+   "type": "cylinder",
+   "at": [
+    0.36,
+    0.05,
+    0.12
+   ],
+   "r": 0.017,
+   "h": 0.1045,
+   "axis": "z",
+   "mat": "furo"
+  },
+  {
+   "name": "etiqueta solta",
+   "type": "box",
+   "at": [
+    0.46,
+    0.0008,
+    0.12
+   ],
+   "size": [
+    0.15,
+    0.0014,
+    0.1
+   ],
+   "round": 0.0005,
+   "mat": "papel termico"
+  },
+  {
+   "name": "saco 1",
+   "type": "box",
+   "at": [
+    0.02,
+    0.0025,
+    0.2
+   ],
+   "size": [
+    0.3,
+    0.004,
+    0.2
+   ],
+   "round": 0.0018,
+   "rot": [
+    0,
+    6,
+    0
+   ],
+   "mat": "saco"
+  },
+  {
+   "name": "saco 2",
+   "type": "box",
+   "at": [
+    0.025,
+    0.0068,
+    0.205
+   ],
+   "size": [
+    0.3,
+    0.004,
+    0.2
+   ],
+   "round": 0.0018,
+   "rot": [
+    0,
+    -3,
+    0
+   ],
+   "mat": "saco"
+  },
+  {
+   "name": "saco 3",
+   "type": "box",
+   "at": [
+    0.018,
+    0.011,
+    0.198
+   ],
+   "size": [
+    0.3,
+    0.004,
+    0.2
+   ],
+   "round": 0.0018,
+   "rot": [
+    0,
+    10,
+    0
+   ],
+   "mat": "saco"
+  },
+  {
+   "name": "saco 4",
+   "type": "box",
+   "at": [
+    0.135,
+    0.0135,
+    0.205
+   ],
+   "size": [
+    0.03,
+    0.0012,
+    0.19
+   ],
+   "round": 0.0005,
+   "rot": [
+    0,
+    10,
+    0
+   ],
+   "mat": "lacre"
+  }
+ ]
+}
