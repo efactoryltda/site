@@ -23,6 +23,8 @@
     if (stage) {
       stage.innerHTML = `<picture>${b.imagem_mobile_url ? `<source media="(max-width: 639px)" srcset="${esc(b.imagem_mobile_url)}">` : ''}<img src="${esc(b.imagem_url)}" alt="${esc(b.titulo || 'Embalagens E-Factory')}" fetchpriority="high"></picture>`;
       stage.classList.add('hero__stage--foto');
+      const hero = document.querySelector('.hero');
+      if (hero) hero.classList.add('hero--banner');
     }
     if (b.titulo) document.getElementById('hero-h').textContent = b.titulo;
     if (b.frase) { const l = document.querySelector('.hero__lead'); if (l) l.textContent = b.frase; }
