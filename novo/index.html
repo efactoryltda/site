@@ -78,8 +78,9 @@
   .hero--product .hero__stage > #linha { inset: -7% 0 0; }
   /* banner com foto vinda do ERP (aba Site): a área segue a proporção da imagem que foi subida,
      de borda a borda da tela, sem recortar nada (a arte pode trazer texto desenhado) */
-  html main > .hero.hero--banner { height: auto; min-height: 0; }
-  html main > .hero.hero--banner > .wrap, html main > .hero.hero--banner .hero-text { height: auto; }
+  html main > .hero:is(.hero--banner, :has(.hero__stage--foto)) { height: auto; min-height: 0; }
+  html main > .hero:is(.hero--banner, :has(.hero__stage--foto)) > .wrap,
+  html main > .hero:is(.hero--banner, :has(.hero__stage--foto)) .hero-text { height: auto; }
   html main .hero--product .hero__stage.hero__stage--foto {
     position: relative; flex: none; min-height: 0; aspect-ratio: auto; overflow: hidden;
     margin-inline: calc(50% - 50vw); margin-bottom: 0; border-radius: 0; background: none; }
@@ -340,7 +341,7 @@
   <a class="btn btn--primary" href="loja.html">Montar meu pedido</a>
 </nav>
 
-<script src="site-dados.js" defer></script>
+<script src="site-dados.js?v=2" defer></script>
 <script type="module" src="assets/system.js"></script>
 <script type="module" src="assets/motion/motion.js"></script>
 <script type="module" src="assets/layout/layout.js"></script>
