@@ -1,0 +1,83 @@
+/* E-Factory — home (usa tokens de base.css) */
+
+.lead { font-size: var(--t-lead); color: var(--cafe-suave); }
+.nota { color: var(--cafe-suave); font-size: var(--t-menor); }
+.h-sub { margin-top: var(--e4); margin-bottom: var(--e2); font-size: var(--t-h3); }
+.faixa > h2 { margin-bottom: var(--e2); }
+
+/* ---------- hero ---------- */
+.hero { display: grid; gap: var(--e3); padding-top: var(--e3); }
+.hero-texto h1 { margin: 12px 0 var(--e2); max-width: 16ch; }
+.selo-local { font-size: 16px; }
+.acoes { display: flex; flex-wrap: wrap; gap: 12px; margin-top: var(--e3); }
+.selos { list-style: none; margin: var(--e3) 0 0; padding: 0; display: grid; gap: 10px; }
+.selos li { display: flex; align-items: center; gap: 10px; font-weight: 600; }
+.selos svg { width: 24px; height: 24px; flex: none; color: var(--ok); }
+.hero-visual { margin: 0; border-radius: var(--raio); overflow: hidden; background: var(--papel); border: 1px solid var(--linha); }
+.hero-visual img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: contain; background: #fff; } /* D3 inteira, sem corte */
+.hero-preco { display: flex; flex-direction: column; gap: 2px; padding: 12px 16px; background: var(--cafe); color: var(--creme); }
+.hero-preco-nome { font-size: 16px; }
+.hero-preco-valor { font-family: var(--fonte-titulo); font-size: 20px; font-weight: 700; color: var(--caramelo); line-height: 1.3; }
+@media (min-width: 901px) {
+  .hero { grid-template-columns: 1.15fr .85fr; align-items: center; gap: var(--e4); padding-top: 32px; padding-bottom: 32px; }
+}
+@media (max-width: 480px) { .acoes { display: grid; } .acoes .btn { width: 100%; } }
+
+/* ---------- categorias ---------- */
+.grade-categorias { display: grid; gap: 18px; margin: var(--e3) 0 var(--e2); }
+@media (min-width: 481px) { .grade-categorias { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (min-width: 901px) { .grade-categorias { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+.categoria { display: flex; flex-direction: column; padding: 16px; background: var(--branco); border: 1px solid var(--linha); border-radius: var(--raio); text-decoration: none; box-shadow: var(--sombra-card); }
+.categoria img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: contain; background: var(--papel); border-radius: 6px; }
+.categoria h3 { margin: 16px 0 6px; }
+.categoria p { margin: 0 0 12px; }
+.categoria { transition: transform .15s, box-shadow .15s; }
+.categoria:hover { transform: translateY(-3px); box-shadow: 0 16px 28px -16px rgba(46, 21, 8, .34); }
+.categoria:hover .categoria-link { text-decoration-thickness: 2px; }
+/* altura igual com e sem faixa: a linha de preço sempre reserva 2 linhas */
+.categoria-preco { min-height: 3.2em; margin: 0 0 12px; font-weight: 700; color: var(--cafe); }
+.categoria-link { margin-top: auto; font-weight: 700; text-decoration: underline; text-underline-offset: 4px; }
+
+.grade-contato { display: grid; gap: var(--e2); margin-top: var(--e3); }
+.grade-contato .caixa-contato { margin: 0; max-width: none; display: flex; flex-direction: column; align-items: flex-start; }
+.grade-contato .btn { margin-top: auto; }
+@media (min-width: 761px) { .grade-contato { grid-template-columns: repeat(2, minmax(0, 1fr)); max-width: 1000px; } }
+.ressalva { margin: var(--e2) 0 0; font-weight: 600; color: var(--cafe-suave); }
+
+/* ---------- b2b ---------- */
+.b2b { background: var(--cafe); color: var(--creme); }
+.b2b h2 { color: var(--creme); margin: 12px 0 var(--e2); }
+.b2b .eyebrow { color: var(--caramelo); }
+
+/* ---------- passos, faq, contato ---------- */
+.passos { margin: 0; padding-left: 1.4em; display: grid; gap: 12px; }
+.passos li { padding-left: 4px; }
+.faq { border-top: 1px solid var(--linha); }
+.faq details { border-bottom: 1px solid var(--linha); }
+.faq summary { min-height: var(--alvo); padding: 14px 0; cursor: pointer; font-weight: 600; }
+.caixa-contato { background: var(--branco); border: 1px solid var(--linha); border-radius: var(--raio); padding: var(--e3); margin: var(--e3) 0; max-width: 760px; }
+.caixa-contato h2 { margin-bottom: 12px; font-size: var(--t-h3); }
+.aviso { background: var(--papel); border-radius: var(--raio); padding: var(--e2); margin: var(--e3) 0; }
+.lista-canais { list-style: none; padding: 0; margin: 0; }
+.lista-canais a { display: inline-flex; align-items: center; min-height: var(--alvo); }
+
+/* ---------- FAQ: tabela de medidas ---------- */
+.tabela-rolagem { overflow-x: auto; margin: 0 0 var(--e2); }
+.tabela { border-collapse: collapse; min-width: 320px; width: 100%; max-width: 560px; font-variant-numeric: tabular-nums; }
+.tabela caption { text-align: left; font-weight: 600; padding-bottom: 8px; }
+.tabela th, .tabela td { text-align: left; padding: 10px 16px 10px 0; border-bottom: 1px solid var(--linha); }
+.tabela thead th { font-weight: 700; }
+.tabela tbody th { font-weight: 500; }
+
+/* ---------- destaques e confiança (só aparecem com dado configurado) ---------- */
+.grade-destaques { display: grid; gap: 18px; margin-top: var(--e3); }
+@media (min-width: 481px) { .grade-destaques { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (min-width: 901px) { .grade-destaques { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+.destaque { display: flex; flex-direction: column; gap: 6px; padding: 12px; background: var(--branco); border: 1px solid var(--linha); border-radius: var(--raio); text-decoration: none; }
+.destaque img { width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 6px; background: var(--papel); }
+.destaque strong { font-family: var(--fonte-titulo); }
+.faixa-confianca { background: var(--papel); }
+.confianca-itens, .canais { list-style: none; padding: 0; margin: var(--e2) 0 0; display: flex; flex-wrap: wrap; gap: 12px 24px; font-weight: 700; }
+.canais a { display: inline-flex; align-items: center; min-height: var(--alvo); }
+.depoimentos { display: grid; gap: var(--e2); margin-top: var(--e2); }
+.depoimentos blockquote { margin: 0; padding: var(--e2); background: var(--branco); border-radius: var(--raio); }
