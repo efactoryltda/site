@@ -3,27 +3,43 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Loja E-Factory</title>
+<title>Loja E-Factory | Caixas, sacos, etiquetas e fitas</title>
 <link rel="icon" type="image/png" href="favicon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Work+Sans:wght@400;500;600;700&display=swap">
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<meta name="description" content="Monte seu pedido de embalagens com preço de atacado automático por quantidade e finalize no WhatsApp. Caixas, sacos de envio, etiquetas térmicas e fitas. Ribeirão Preto/SP.">
+<link rel="canonical" href="https://efactory.com.br/loja.html">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="E-Factory">
+<meta property="og:title" content="Loja E-Factory | Caixas, sacos, etiquetas e fitas">
+<meta property="og:description" content="Monte seu pedido de embalagens com preço de atacado automático por quantidade e finalize no WhatsApp. Caixas, sacos de envio, etiquetas térmicas e fitas. Ribeirão Preto/SP.">
+<meta property="og:url" content="https://efactory.com.br/loja.html">
+<meta property="og:image" content="https://efactory.com.br/img/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="E-Factory, embalagens para e-commerce">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Loja E-Factory | Caixas, sacos, etiquetas e fitas">
+<meta name="twitter:description" content="Monte seu pedido de embalagens com preço de atacado automático por quantidade e finalize no WhatsApp. Caixas, sacos de envio, etiquetas térmicas e fitas. Ribeirão Preto/SP.">
+<meta name="twitter:image" content="https://efactory.com.br/img/og.jpg">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LocalBusiness", "name": "E-Factory", "legalName": "E-Factory Group LTDA", "taxID": "61.352.525/0001-80", "description": "Caixas de papelão, sacos de envio, etiquetas térmicas e fitas adesivas para quem vende online.", "url": "https://efactory.com.br/", "logo": "https://efactory.com.br/logo-full.png", "image": "https://efactory.com.br/img/og.jpg", "telephone": "+55 16 98177-8273", "email": "efactoryltda@gmail.com", "address": {"@type": "PostalAddress", "addressLocality": "Ribeirão Preto", "addressRegion": "SP", "addressCountry": "BR"}, "areaServed": "BR", "sameAs": ["https://www.instagram.com/e.factory_/"], "contactPoint": {"@type": "ContactPoint", "contactType": "sales", "telephone": "+55 16 98177-8273", "url": "https://wa.me/5516981778273", "availableLanguage": "pt-BR"}}</script>
+<link rel="preload" href="fonts/sora-var-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/work-sans-var-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="styles/base.css?v=cdc7740bd7">
+<script src="js/fonte.js?v=11223b0f98"></script>
 <style>
+  /* tokens vêm de styles/base.css; aliases mantêm o CSS antigo da loja */
   :root{
-    --cor-ouro: #DBB069;
-    --cor-ouro-escuro: #AE8A53;
-    --cor-ouro-claro: #F1DFB8;
-    --cor-chocolate: #2E1508;
-    --cor-chocolate-suave: #6B4226;
-    --cor-fundo: #FBF3E4;
-    --cor-paper: #F4E7CC;
-    --cor-linha: #E4D3B0;
-    --cor-ok: #3f7d4a;
-    --fonte-titulo: 'Sora', 'Segoe UI', sans-serif;
-    --fonte-texto: 'Work Sans', 'Segoe UI', sans-serif;
-    --raio-borda: 10px;
-    --espaco-1: 8px; --espaco-2: 16px; --espaco-3: 24px; --espaco-4: 40px;
-    --sombra-card: 0 12px 24px -16px rgba(46,21,8,0.28);
+    --cor-ouro: var(--caramelo);
+    --cor-ouro-escuro: var(--caramelo-escuro);
+    --cor-ouro-claro: var(--caramelo-claro);
+    --cor-chocolate: var(--cafe);
+    --cor-chocolate-suave: var(--cafe-suave);
+    --cor-fundo: var(--creme);
+    --cor-paper: var(--papel);
+    --cor-linha: var(--linha);
+    --cor-ok: var(--ok);
+    --raio-borda: var(--raio);
+    --espaco-1: var(--e1); --espaco-2: var(--e2); --espaco-3: var(--e3); --espaco-4: var(--e4);
   }
   *{ box-sizing:border-box; }
   body{
@@ -31,29 +47,10 @@
     -webkit-font-smoothing:antialiased;
   }
   h1,h2,h3{ font-family:var(--fonte-titulo); margin:0; line-height:1.2; }
-  .container{ max-width:1100px; margin:0 auto; padding:0 20px; }
+  .container{ padding-left:var(--pad-x); padding-right:var(--pad-x); }
   a{ color:inherit; }
 
   /* ---------- cabeçalho ---------- */
-  header.topo{
-    position:sticky; top:0; z-index:50; background:rgba(251,243,228,0.94); backdrop-filter:blur(6px);
-    border-bottom:1px solid var(--cor-linha);
-  }
-  .topo-linha{ display:flex; align-items:center; justify-content:space-between; padding:14px 0; gap:16px; }
-  .marca{ white-space:nowrap; text-decoration:none; display:flex; align-items:center; gap:10px; font-family:var(--fonte-titulo); font-weight:700; font-size:16px; }
-  .marca svg{ width:34px; height:34px; flex-shrink:0; }
-  .marca img.logo-icone{ width:36px; height:auto; flex-shrink:0; }
-  .rodape-loja img.logo-completo{ width:110px; height:auto; display:block; margin:0 auto 10px; }
-  #btn-carrinho{
-    display:flex; align-items:center; gap:8px; background:var(--cor-chocolate); color:#fff;
-    border:none; border-radius:999px; padding:10px 18px; font-weight:600; font-size:14px; cursor:pointer;
-    transition:transform 0.15s, opacity 0.15s;
-  }
-  #btn-carrinho:hover{ opacity:0.92; transform:translateY(-1px); }
-  #contador-carrinho{
-    background:var(--cor-ouro); color:var(--cor-chocolate); border-radius:50%;
-    width:22px; height:22px; display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:700;
-  }
 
   /* ---------- hero ---------- */
   .hero-loja{ position:relative; overflow:hidden; padding:40px 0 24px; text-align:center; }
@@ -65,13 +62,13 @@
     pointer-events:none;
   }
   .hero-loja > *{ position:relative; z-index:1; }
-  .hero-loja h1{ font-size:clamp(26px,4vw,38px); margin-bottom:8px; }
+  .hero-loja h1{ margin-bottom:8px; }
   .hero-loja p{ color:var(--cor-chocolate-suave); font-size:16px; max-width:560px; margin:0 auto; }
 
   /* ---------- destaques ---------- */
-  .secao{ padding:28px 20px; border-top:2px dashed var(--cor-linha); }
+  .secao{ padding:28px var(--pad-x); border-top:2px dashed var(--cor-linha); }
   .secao:first-of-type{ border-top:none; }
-  .secao h2{ font-size:20px; margin-bottom:16px; }
+  .secao h2{ margin-bottom:16px; }
   .carrossel-destaques{ display:flex; gap:16px; overflow-x:auto; padding-bottom:8px; }
   .carrossel-destaques .card-produto{ min-width:220px; }
 
@@ -85,45 +82,38 @@
   }
   .card-produto:hover{ transform:translateY(-3px); box-shadow:0 16px 28px -16px rgba(46,21,8,0.34); }
   .card-produto .foto{
-    width:100%; aspect-ratio:1/1; background:var(--cor-paper); display:flex; align-items:center; justify-content:center;
+    width:100%; aspect-ratio:1/1; background:#fff; display:flex; align-items:center; justify-content:center;
     overflow:hidden; position:relative;
   }
-  .card-produto .foto img{ width:100%; height:100%; object-fit:cover; }
+  /* foto sempre inteira no card (contain): fotos 4:3 como D3/D6/D17 ganham respiro em vez de perder as laterais */
+  .card-produto .foto img{ width:100%; height:100%; object-fit:contain; }
   .card-produto .foto .sem-foto{
-    color:var(--cor-ouro-escuro); font-size:12px; text-align:center; padding:14px;
+    color:var(--cor-ouro-escuro); font-size:16px; text-align:center; padding:14px;
     border:1.5px dashed var(--cor-ouro-escuro); border-radius:8px; margin:14px;
   }
-  .card-produto .foto .miniaturas{
-    position:absolute; left:8px; bottom:8px; display:flex; gap:6px;
+  .card-produto .miniaturas{
+    display:flex; gap:6px; padding:8px 14px 0; background:#fff;
   }
-  .card-produto .foto .miniaturas button{
+  .card-produto .miniaturas button{
     width:38px; height:38px; padding:0; border:2px solid #fff; border-radius:6px; overflow:hidden;
     background:var(--cor-paper); cursor:pointer; opacity:0.85; box-shadow:0 1px 4px rgba(0,0,0,0.3);
   }
-  .card-produto .foto .miniaturas button.ativa{ border-color:var(--cor-ouro-escuro); opacity:1; }
-  .card-produto .foto .miniaturas button img{ width:100%; height:100%; object-fit:cover; display:block; }
+  .card-produto .miniaturas button.ativa{ border-color:var(--cor-ouro-escuro); opacity:1; }
+  .card-produto .miniaturas button img{ width:100%; height:100%; object-fit:cover; display:block; }
   .selo-promo{
-    position:absolute; top:8px; left:8px; background:#c24b3c; color:#fff; font-size:11px; font-weight:700;
+    position:absolute; top:8px; left:8px; background:#c24b3c; color:#fff; font-size:16px; font-weight:700;
     padding:3px 9px; border-radius:999px; letter-spacing:0.2px;
   }
   .card-produto .corpo{ padding:14px; display:flex; flex-direction:column; gap:8px; flex:1; }
-  .card-produto h3{ font-size:15px; font-weight:700; }
-  .card-produto .faixa-info{ font-size:12px; color:var(--cor-chocolate-suave); }
+  .card-produto h3{ font-size:var(--t-h3); font-weight:700; line-height:1.25; }
+  .card-produto .faixa-info{ font-size:16px; color:var(--cor-chocolate-suave); }
   .preco-linha{ display:flex; align-items:baseline; gap:8px; margin-top:auto; }
   .preco-atual{ font-family:var(--fonte-titulo); font-weight:700; font-size:19px; color:var(--cor-chocolate); }
-  .preco-riscado{ font-size:13px; color:var(--cor-chocolate-suave); text-decoration:line-through; }
+  .preco-riscado{ font-size:16px; color:var(--cor-chocolate-suave); text-decoration:line-through; }
   .linha-qtd{ display:flex; align-items:center; gap:8px; margin-top:4px; }
   .linha-qtd input{
-    width:64px; padding:7px 8px; border:1px solid var(--cor-linha); border-radius:6px; font-size:14px; text-align:center;
+    width:64px; padding:7px 8px; border:1px solid var(--cor-linha); border-radius:6px; font-size:16px; text-align:center;
   }
-  .btn{
-    background:var(--cor-ouro); color:var(--cor-chocolate); border:none; border-radius:999px;
-    padding:10px 16px; font-weight:700; font-size:14px; cursor:pointer; text-align:center;
-    transition:background 0.15s, color 0.15s, transform 0.15s;
-  }
-  .btn:hover{ background:var(--cor-ouro-escuro); color:#fff; transform:translateY(-1px); }
-  .btn.secundario{ background:transparent; border:1px solid var(--cor-chocolate); color:var(--cor-chocolate); }
-  .btn:disabled{ opacity:0.5; cursor:not-allowed; transform:none; }
   .vazio{ text-align:center; color:var(--cor-chocolate-suave); padding:40px 0; }
 
   /* ---------- carrinho (painel lateral) ---------- */
@@ -138,112 +128,92 @@
   #painel-carrinho.aberto{ transform:translateX(0); }
   #fundo-carrinho.aberto{ display:block; }
   .painel-cabecalho{ display:flex; align-items:center; justify-content:space-between; padding:18px 20px; border-bottom:2px dashed var(--cor-linha); }
-  .painel-cabecalho h2{ font-size:18px; }
+  .painel-cabecalho h2{ font-size:var(--t-h3); }
   #btn-fechar-carrinho{ background:none; border:none; font-size:22px; cursor:pointer; color:var(--cor-chocolate); }
   #itens-carrinho{ flex:1; overflow-y:auto; padding:14px 20px; }
   .item-carrinho{ display:flex; gap:12px; padding:12px 0; border-bottom:1px solid var(--cor-linha); }
   .item-carrinho img{ width:56px; height:56px; border-radius:8px; object-fit:cover; background:var(--cor-paper); flex-shrink:0; }
   .item-carrinho .info{ flex:1; }
-  .item-carrinho h4{ font-size:13.5px; font-weight:600; margin-bottom:4px; }
-  .item-carrinho .linha-controle{ display:flex; align-items:center; gap:8px; font-size:13px; }
+  .item-carrinho h4{ font-size:16px; font-weight:600; margin-bottom:4px; }
+  .item-carrinho .linha-controle{ display:flex; align-items:center; gap:8px; font-size:16px; }
   .item-carrinho .linha-controle input{ width:52px; padding:4px; border:1px solid var(--cor-linha); border-radius:6px; text-align:center; }
-  .item-carrinho .remover{ background:none; border:none; color:#c24b3c; cursor:pointer; font-size:12px; text-decoration:underline; padding:0; }
-  .item-carrinho .subtotal{ font-weight:700; font-size:13.5px; white-space:nowrap; }
+  .item-carrinho .remover{ background:none; border:none; color:#c24b3c; cursor:pointer; font-size:16px; text-decoration:underline; padding:0; }
+  .item-carrinho .subtotal{ font-weight:700; font-size:16px; white-space:nowrap; }
   .rodape-carrinho{ padding:16px 20px; border-top:2px dashed var(--cor-linha); }
   .linha-total{ display:flex; justify-content:space-between; font-family:var(--fonte-titulo); font-weight:700; font-size:17px; margin-bottom:14px; }
   #form-checkout .field{ margin-bottom:10px; display:flex; flex-direction:column; gap:4px; }
-  #form-checkout label{ font-size:12px; color:var(--cor-chocolate-suave); }
+  #form-checkout label{ font-size:16px; color:var(--cor-chocolate-suave); }
   .opcao-frete{
     display:flex; align-items:center; gap:10px; padding:8px 10px; border:1px solid var(--cor-linha);
-    border-radius:8px; margin-bottom:6px; cursor:pointer; font-size:13px; transition:border-color 0.15s, background 0.15s;
+    border-radius:8px; margin-bottom:6px; cursor:pointer; font-size:16px; transition:border-color 0.15s, background 0.15s;
   }
   .opcao-frete:hover{ border-color:var(--cor-ouro-escuro); background:var(--cor-paper); }
   .opcao-frete input{ margin:0; }
   .opcao-frete .nome-frete{ flex:1; }
   .opcao-frete .preco-frete{ font-weight:700; }
   #form-checkout input, #form-checkout textarea{
-    padding:9px 10px; border:1px solid var(--cor-linha); border-radius:6px; font-size:14px; font-family:inherit;
+    padding:9px 10px; border:1px solid var(--cor-linha); border-radius:6px; font-size:16px; font-family:inherit;
   }
-  #checkout-status{ font-size:13px; margin-top:8px; min-height:16px; }
+  #checkout-status{ font-size:16px; margin-top:8px; min-height:16px; }
   #checkout-status.erro{ color:#c24b3c; }
   #checkout-status.ok{ color:var(--cor-ok); }
   #tela-sucesso{ display:none; text-align:center; padding:20px; }
-  #tela-sucesso h3{ font-size:18px; margin-bottom:10px; }
-  #tela-sucesso p{ color:var(--cor-chocolate-suave); font-size:14px; margin-bottom:18px; }
+  #tela-sucesso h3{ font-size:var(--t-h3); margin-bottom:10px; }
+  #tela-sucesso p{ color:var(--cor-chocolate-suave); font-size:16px; margin-bottom:18px; }
   #tela-sucesso a.btn{ display:inline-block; text-decoration:none; }
 
-  footer.rodape-loja{ text-align:center; padding:30px 0; color:var(--cor-chocolate-suave); font-size:13px; border-top:2px dashed var(--cor-linha); }
 
   /* ---------- UX v2 ---------- */
   html{ scroll-behavior:smooth; }
-  body{ padding-bottom:84px; }
+  body.com-barra{ padding-bottom:80px; }
   a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible{ outline:3px solid var(--cor-ouro-escuro); outline-offset:2px; }
   .ico{ flex-shrink:0; }
-  .link-ajuda .ico{ margin-right:6px; }
-  .topo-acoes{ display:flex; align-items:center; gap:10px; }
-  .link-ajuda{ font-size:14px; font-weight:600; text-decoration:none; padding:10px 12px; border-radius:999px; border:1px solid var(--cor-linha); background:#fff; white-space:nowrap; min-height:44px; display:inline-flex; align-items:center; }
-  .link-ajuda:hover{ border-color:var(--cor-ouro-escuro); }
-  #btn-carrinho{ min-height:44px; }
-  .beneficios{ display:flex; flex-wrap:wrap; justify-content:center; gap:8px 18px; margin-top:16px; font-size:13.5px; font-weight:600; color:var(--cor-chocolate-suave); }
+  .beneficios{ display:flex; flex-wrap:wrap; justify-content:center; gap:8px 18px; margin-top:16px; font-size:16px; font-weight:600; color:var(--cor-chocolate-suave); }
   .beneficios span::before{ content:""; display:inline-block; width:5px; height:10px; border:solid var(--cor-ok); border-width:0 2px 2px 0; transform:rotate(45deg); margin:0 8px 2px 0; }
-  .barra-busca{ position:sticky; top:63px; z-index:40; background:var(--cor-fundo); padding:10px 20px; }
+  .barra-busca{ position:sticky; top:65px; z-index:40; background:var(--cor-fundo); padding:10px var(--pad-x); }
   .barra-busca input{ width:100%; padding:13px 16px; font-size:16px; border:1px solid var(--cor-linha); border-radius:999px; background:#fff; font-family:inherit; color:var(--cor-chocolate); }
   .barra-busca input::placeholder{ color:#9a8467; }
-  .contagem-resultados{ font-size:13px; color:var(--cor-chocolate-suave); margin:2px 0 12px; }
+  .contagem-resultados{ font-size:16px; color:var(--cor-chocolate-suave); margin:2px 0 12px; }
   .esqueleto{ height:300px; border-radius:var(--raio-borda); background:linear-gradient(90deg,#f1e6cf 25%,#f8efdc 50%,#f1e6cf 75%); background-size:200% 100%; animation:brilho 1.2s infinite linear; }
   @keyframes brilho{ to{ background-position:-200% 0; } }
   .stepper{ display:flex; align-items:stretch; border:1px solid var(--cor-linha); border-radius:999px; overflow:hidden; background:#fff; }
-  .stepper button{ display:flex; align-items:center; justify-content:center; padding:0; width:40px; border:none; background:var(--cor-paper); font-size:20px; font-weight:700; color:var(--cor-chocolate); cursor:pointer; min-height:42px; }
+  .stepper button{ display:flex; align-items:center; justify-content:center; padding:0; width:44px; min-width:44px; height:44px; border:none; background:var(--cor-paper); font-size:20px; font-weight:700; color:var(--cor-chocolate); cursor:pointer; }
   .stepper button:hover{ background:var(--cor-ouro-claro); }
   .stepper input{ min-width:0; width:52px; border:none !important; text-align:center; font-size:16px !important; padding:0 !important; -moz-appearance:textfield; background:#fff; }
   .stepper input::-webkit-outer-spin-button, .stepper input::-webkit-inner-spin-button{ -webkit-appearance:none; margin:0; }
   .card-produto .linha-qtd{ gap:8px; }
-  .card-produto .linha-qtd .btn{ min-height:44px; }
   .card-produto .faixa-info.desc{ display:-webkit-box; -webkit-line-clamp:3; -webkit-box-orient:vertical; overflow:hidden; }
-  .dica-atacado{ font-size:12px; color:var(--cor-ok); font-weight:600; min-height:16px; }
-  .card-produto .foto .miniaturas button{ width:44px; height:44px; }
-  .btn{ min-height:44px; }
+  .dica-atacado{ font-size:16px; color:var(--cor-ok); font-weight:600; min-height:16px; }
+  .card-produto .miniaturas button{ width:44px; height:44px; box-shadow:none; border-color:var(--linha); }
+  .card-produto .foto img{ display:block; }
   .barra-carrinho{
     position:fixed; left:0; right:0; bottom:0; z-index:60; padding:10px 16px calc(10px + env(safe-area-inset-bottom));
     background:var(--cor-chocolate); color:#fff; display:none; align-items:center; justify-content:space-between; gap:12px;
     box-shadow:0 -8px 24px -12px rgba(46,21,8,0.5);
   }
   .barra-carrinho.visivel{ display:flex; }
-  .barra-carrinho .resumo{ font-size:14px; line-height:1.3; }
+  .barra-carrinho .resumo{ font-size:16px; line-height:1.3; }
   .barra-carrinho .resumo strong{ display:block; font-family:var(--fonte-titulo); font-size:17px; }
   .barra-carrinho .btn{ white-space:nowrap; }
-  #toast{ position:fixed; left:50%; bottom:96px; transform:translate(-50%,20px); background:#fff; color:var(--cor-chocolate); border:1px solid var(--cor-linha); border-radius:999px; padding:10px 18px; font-size:14px; font-weight:600; box-shadow:var(--sombra-card); opacity:0; pointer-events:none; transition:opacity .2s, transform .2s; z-index:120; max-width:90vw; text-align:center; }
+  #toast{ position:fixed; left:50%; bottom:96px; transform:translate(-50%,20px); background:#fff; color:var(--cor-chocolate); border:1px solid var(--cor-linha); border-radius:999px; padding:10px 18px; font-size:16px; font-weight:600; box-shadow:var(--sombra-card); opacity:0; pointer-events:none; transition:opacity .2s, transform .2s; z-index:120; max-width:90vw; text-align:center; }
   #toast.mostra{ opacity:1; transform:translate(-50%,0); }
-  .item-carrinho .stepper button{ display:flex; align-items:center; justify-content:center; padding:0; min-height:36px; width:36px; }
+
   .item-carrinho .stepper input{ width:44px; }
-  .item-carrinho .remover{ padding:8px 0; }
-  .nota-whatsapp{ font-size:13px; color:var(--cor-chocolate-suave); background:var(--cor-paper); border-radius:8px; padding:10px 12px; margin-bottom:12px; line-height:1.4; }
+  .item-carrinho .remover{ min-height:44px; padding:0 4px; }
+  .nota-whatsapp{ font-size:16px; color:var(--cor-chocolate-suave); background:var(--cor-paper); border-radius:8px; padding:10px 12px; margin-bottom:12px; line-height:1.4; }
   details.frete-opcional{ margin-bottom:12px; border:1px solid var(--cor-linha); border-radius:8px; padding:8px 12px; }
-  details.frete-opcional summary{ cursor:pointer; font-size:13.5px; font-weight:600; min-height:28px; display:flex; align-items:center; }
+  details.frete-opcional summary{ cursor:pointer; font-size:16px; font-weight:600; min-height:44px; display:flex; align-items:center; }
   details.frete-opcional[open] summary{ margin-bottom:8px; }
   #form-checkout input, #form-checkout textarea{ font-size:16px; }
-  #btn-finalizar{ min-height:50px; font-size:16px; }
+  #btn-finalizar{ min-height:52px; }
+  .card-produto .linha-qtd .btn{ padding-left:12px; padding-right:12px; }
   .vazio-carrinho{ text-align:center; padding:40px 10px; color:var(--cor-chocolate-suave); }
   .vazio-carrinho .btn{ margin-top:14px; }
   .wa-ajuda{ text-align:center; padding:22px 20px 8px; }
-  .wa-ajuda p{ margin:0 0 10px; color:var(--cor-chocolate-suave); font-size:15px; }
+  .wa-ajuda p{ margin:0 0 10px; color:var(--cor-chocolate-suave); font-size:16px; }
   @media (max-width:520px){
-    .link-ajuda .txt-longo{ display:none; }
-    .topo-linha{ gap:8px; }
-    .container{ padding-left:14px; padding-right:14px; }
-    .secao, .barra-busca{ padding-left:14px; padding-right:14px; }
-    .marca span{ overflow:hidden; text-overflow:ellipsis; }
-    .marca{ min-width:0; flex-shrink:1; }
-    .link-ajuda .ico{ margin-right:0; }
-    .link-ajuda .txt-wa{ display:none; }
-    .topo-acoes{ gap:6px; }
-    .link-ajuda{ padding:10px; font-size:13px; }
-    #btn-carrinho{ padding:10px 12px; }
-    .marca{ font-size:15px; gap:8px; }
-    .marca svg{ width:30px; height:30px; }
     .grade-produtos{ grid-template-columns:repeat(2,1fr); gap:12px; }
     .card-produto .corpo{ padding:10px; }
-    .card-produto h3{ font-size:14px; }
     .preco-atual{ font-size:17px; }
     .linha-qtd{ flex-direction:column; align-items:stretch; }
     .linha-qtd .stepper{ justify-content:space-between; }
@@ -257,29 +227,40 @@
   .item-carrinho .subtotal{ flex-shrink:0; }
   .item-carrinho .info{ min-width:0; }
   .item-carrinho .linha-controle{ flex-wrap:wrap; }
-  @media (max-width:360px){ #btn-carrinho .txt-longo{ display:none; } .link-ajuda{ padding:10px 9px; } }
   .hero-loja{ padding-top:28px !important; }
   .linha-total{ gap:12px; align-items:baseline; flex-wrap:wrap; }
   .linha-total span:last-child{ margin-left:auto; white-space:nowrap; }
   #painel-carrinho{ visibility:hidden; box-shadow:none; transition:transform .25s ease, visibility 0s linear .25s; }
   #painel-carrinho.aberto{ visibility:visible; box-shadow:-16px 0 32px -20px rgba(46,21,8,0.4); transition-delay:0s; }
   @media (prefers-reduced-motion:reduce){ *{ transition:none !important; animation:none !important; } }
+  body.com-barra .wa-flutuante{ bottom:calc(88px + env(safe-area-inset-bottom)); }
+  @media (max-width:760px){ .barra-busca{ position:static; } } /* mobile: header fixo + busca rolando com a página */
+  @media (max-width:359px){ .grade-produtos{ grid-template-columns:1fr; } }
+  @media (max-width:480px){ .hero-loja{ padding-top:40px !important; } .item-carrinho .linha-controle{ gap:4px 8px; } }
+  .chips{ display:flex; gap:8px; margin-top:10px; overflow-x:auto; scrollbar-width:none; padding-bottom:2px; }
+  .chips::-webkit-scrollbar{ display:none; }
+  .chips button{ flex:none; min-height:44px; padding:0 18px; border:1px solid var(--linha); border-radius:999px; background:var(--branco); color:var(--cafe); font-weight:600; font-size:16px; cursor:pointer; }
+  .chips button[aria-pressed="true"]{ background:var(--cafe); border-color:var(--cafe); color:var(--creme); }
+  .selo-medida{ position:absolute; right:8px; top:8px; z-index:1; background:var(--cafe); color:var(--creme); font-weight:700; font-size:16px; line-height:1.2; padding:6px 10px; border-radius:6px; }
 </style>
 </head>
 <body>
 
 <header class="topo">
-  <div class="container topo-linha">
-    <a href="index.html" class="marca" aria-label="E-Factory, voltar ao início">
-      <img src="logo-icone.png" alt="" class="logo-icone" width="36" height="36">
+  <div class="topo-linha">
+    <a class="marca" href="index.html" aria-label="E-Factory, início">
+      <img src="img/logo-icone-80.png" alt="" width="40" height="40">
       <span>E-Factory</span>
     </a>
-    <div class="topo-acoes">
-      <a class="link-ajuda" aria-label="Falar no WhatsApp" href="https://wa.me/5516981778273?text=Ol%C3%A1%21+Preciso+de+ajuda+com+a+loja+da+E-Factory." target="_blank" rel="noopener"><svg class="ico" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.200zm4.5-6.100c-.2-.1-1.500-.7-1.700-.8-.2-.1-.4-.1-.6.100l-.8 1c-.1.200-.3.200-.5.100a6.700 6.700 0 0 1-3.300-2.900c-.2-.4.200-.4.700-1.300.1-.2 0-.3 0-.5l-.8-1.800c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.300 3 3 0 0 0-.9 2.200 5.200 5.200 0 0 0 1.100 2.800 11.800 11.800 0 0 0 4.500 4c1.700.700 2.300.8 3.200.600a2.700 2.700 0 0 0 1.800-1.300 2.200 2.200 0 0 0 .2-1.300c-.1-.1-.2-.2-.5-.3z"/></svg><span class="txt-longo">Falar no&nbsp;</span><span class="txt-wa">WhatsApp</span></a>
-      <button id="btn-carrinho" aria-label="Abrir carrinho">
-        <svg class="ico" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M3 4h2.500l2.300 11h10.400l2-8H6.500M9.500 20a1 1 0 1 0 0 .01M17 20a1 1 0 1 0 0 .01"/></svg><span class="txt-longo">Carrinho </span><span id="contador-carrinho">0</span>
-      </button>
-    </div>
+    <nav class="nav" aria-label="Navegação principal">
+      <a href="index.html">Início</a>
+      <a href="catalogo.html">Catálogo</a>
+      <a href="orcamento.html">Orçamento</a>
+      <a class="nav-loja" href="loja.html" aria-current="page">Loja</a>
+    </nav>
+    <button id="btn-carrinho" class="btn-carrinho" type="button" aria-label="Abrir carrinho">
+      <svg class="ico" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M3 4h2.5l2.3 11h10.4l2-8H6.5M9.5 20a1 1 0 1 0 0 .01M17 20a1 1 0 1 0 0 .01"/></svg><span class="txt">Carrinho</span><span id="contador-carrinho" class="contador">0</span>
+    </button>
   </div>
 </header>
 
@@ -290,7 +271,14 @@
 </section>
 
 <div class="container barra-busca">
-  <input type="search" id="busca" placeholder="Buscar produto (ex.: caixa, etiqueta, sacola)" aria-label="Buscar produto" autocomplete="off">
+  <input type="search" id="busca" placeholder="Buscar produto (ex.: caixa, etiqueta, saco)" aria-label="Buscar produto" autocomplete="off">
+  <div class="chips" role="group" aria-label="Filtrar por categoria">
+    <button type="button" data-cat="" aria-pressed="true">Todos</button>
+    <button type="button" data-cat="caixas" aria-pressed="false">Caixas</button>
+    <button type="button" data-cat="sacos" aria-pressed="false">Sacos</button>
+    <button type="button" data-cat="etiquetas" aria-pressed="false">Etiquetas</button>
+    <button type="button" data-cat="fitas" aria-pressed="false">Fitas</button>
+  </div>
 </div>
 
 <section class="secao container" id="secao-destaques" style="display:none;">
@@ -306,9 +294,25 @@
   <div class="wa-ajuda"><p>Não achou o que precisa? Medida especial ou quantidade grande?</p><a class="btn" style="display:inline-block;text-decoration:none;" href="https://wa.me/5516981778273?text=Ol%C3%A1%21+Preciso+de+um+or%C3%A7amento+de+embalagens." target="_blank" rel="noopener">Pedir orçamento no WhatsApp</a></div>
 </section>
 
-<footer class="rodape-loja">
-  <img src="logo-full.png" alt="Logo E-Factory" class="logo-completo">
-  E-Factory Group - Ribeirão Preto/SP. Fale com a gente pelo WhatsApp
+<footer class="rodape">
+  <div class="rodape-grade">
+    <div class="rodape-col">
+      <img src="img/logo-rodape-144.png" alt="E-Factory" class="rodape-logo" width="63" height="72" loading="lazy">
+      <p>Embalagens para quem vende online.</p>
+    </div>
+    <div class="rodape-col">
+      <h2 class="rodape-titulo">Contato</h2>
+      <ul>
+        <li><a href="https://wa.me/5516981778273" rel="noopener noreferrer" target="_blank">WhatsApp (16) 98177-8273</a></li>
+        <li><a href="mailto:efactoryltda@gmail.com">efactoryltda@gmail.com</a></li>
+        <li><a href="https://www.instagram.com/e.factory_/" rel="noreferrer" target="_blank">Instagram @e.factory_</a></li>
+      </ul>
+    </div>
+    <div class="rodape-col">
+      <h2 class="rodape-titulo">Empresa</h2>
+      <p>E-Factory Group LTDA<br>CNPJ 61.352.525/0001-80<br>Ribeirão Preto/SP</p>
+    </div>
+  </div>
 </footer>
 
 <!-- ---------- Carrinho ---------- -->
@@ -322,23 +326,23 @@
   <div id="itens-carrinho"></div>
 
   <div class="rodape-carrinho" id="rodape-carrinho">
-    <div class="nota-whatsapp">Você não paga nada aqui. Ao tocar em <strong>Finalizar no WhatsApp</strong>, enviamos seu pedido pronto e combinamos pagamento e entrega por lá.</div>
+    <div class="nota-whatsapp">Preço, frete e prazo são confirmados no WhatsApp antes de fechar. Você não paga nada aqui: ao tocar em <strong>Finalizar no WhatsApp</strong>, seu pedido segue pronto para a conversa.</div>
     <details class="frete-opcional"><summary>Calcular frete (opcional)</summary>
     <div class="bloco-frete">
-      <label for="chk-cep" style="font-size:12px; color:var(--cor-chocolate-suave); display:block; margin-bottom:4px;">CEP de entrega</label>
+      <label for="chk-cep" style="font-size:16px; color:var(--cor-chocolate-suave); display:block; margin-bottom:4px;">CEP de entrega</label>
       <div style="display:flex; gap:8px; margin-bottom:8px;">
         <input type="text" id="chk-cep" placeholder="00000-000" maxlength="9" inputmode="numeric" autocomplete="postal-code" style="flex:1; padding:9px 10px; border:1px solid var(--cor-linha); border-radius:6px; font-size:16px; min-width:0;">
-        <button type="button" class="btn secundario" id="btn-calcular-frete">Calcular frete</button>
+        <button type="button" class="btn btn-sec" id="btn-calcular-frete">Calcular frete</button>
       </div>
       <div id="opcoes-frete"></div>
-      <div id="frete-status" style="font-size:12.5px; color:var(--cor-chocolate-suave); margin-bottom:10px;"></div>
+      <div id="frete-status" style="font-size:16px; color:var(--cor-chocolate-suave); margin-bottom:10px;"></div>
     </div></details>
 
     <div class="linha-total"><span id="rotulo-total">Subtotal dos produtos</span><span id="total-carrinho">R$ 0,00</span></div>
 
     <form id="form-checkout">
-      <div class="field"><label>Seu nome (opcional)</label><input type="text" id="chk-nome" autocomplete="name"></div>
-      <div class="field"><label>Observação (opcional)</label><textarea id="chk-obs" rows="2"></textarea></div>
+      <div class="field"><label for="chk-nome">Seu nome (opcional)</label><input type="text" id="chk-nome" autocomplete="name"></div>
+      <div class="field"><label for="chk-obs">Observação (opcional)</label><textarea id="chk-obs" rows="2"></textarea></div>
       <button type="submit" class="btn" id="btn-finalizar" style="width:100%;">Finalizar no WhatsApp</button>
       <div id="checkout-status"></div>
     </form>
@@ -350,21 +354,24 @@
   <button class="btn" id="btn-barra-carrinho" type="button">Ver carrinho e finalizar</button>
 </div>
 <div id="toast" role="status" aria-live="polite"></div>
+<a class="wa-flutuante" aria-label="Falar no WhatsApp" href="https://wa.me/5516981778273?text=Ol%C3%A1%21+Preciso+de+ajuda+com+a+loja+da+E-Factory." rel="noopener noreferrer" target="_blank"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.5l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.8 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .2-1.3c-.1-.1-.2-.2-.5-.3z"/></svg><span>WhatsApp</span></a>
 
 <script>
 // ============================================================
 // CONFIGURAÇÃO — mesma URL e chave "anon public" do ERP.
 // ============================================================
-const SUPABASE_URL = "https://jrkuzyhobgzhjjyblmed.supabase.co";
-const SUPABASE_ANON_KEY = "sb_publishable_hTVzu8qbEYSmUeDZvFA9XQ_s4ARn1_9";
+// URL e chave anon pública vêm de js/fonte.js (fonte única de produtos/preços da home e da loja).
+const SUPABASE_URL = EFonte.SUPABASE_URL;
+const SUPABASE_ANON_KEY = EFonte.SUPABASE_ANON_KEY;
 const WHATSAPP_NUMERO = "5516981778273"; // (16) 98177-8273 — troque se for outro número de vendas
 // ============================================================
 
-const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
 function fmtMoeda(n){ return 'R$ ' + Number(n || 0).toLocaleString('pt-BR', {minimumFractionDigits:2, maximumFractionDigits:2}); }
 
 let produtos = [];
+let produtosCarregados = false; // vira true só quando a RPC responde com a lista
+let precosDisponiveis = false;
 let carrinho = [];
 let freteEscolhido = null; // { servico, transportadora, preco, prazo_dias } — precisa recalcular sempre que o carrinho muda
 try {
@@ -396,33 +403,47 @@ function proximaFaixaTexto(produto, quantidade){
 }
 
 async function carregarProdutos(){
-  const { data, error } = await supabaseClient.rpc('listar_produtos_loja');
+  let data = null, error = null;
+  try { data = await EFonte.listarProdutos(); } catch (e) { error = e; }
   if (error) {
     document.getElementById('grade-produtos').innerHTML = '<p class="vazio">Não foi possível carregar os produtos agora. Tente atualizar a página.</p>';
     console.error(error);
     return;
   }
-  produtos = data || [];
+  produtos = Array.isArray(data) ? data : [];
+  produtosCarregados = Array.isArray(data);
   renderDestaques();
   renderGrade();
   renderCarrinho();
 }
 
+// Produtos sem foto individual (caixas sem código D e sacos) usam a foto da categoria:
+// mostramos a medida num selo sobre a foto para diferenciar.
+function seloMedida(produto){
+  const semFotoPropria = produto.categoria === 'sacos' || (produto.categoria === 'caixas' && !/\bD\d+\b/.test(produto.nome));
+  if (!semFotoPropria) return '';
+  const m = (produto.nome.match(/(\d+(?:,\d+)?(?:x\d+(?:,\d+)?){1,2})\s*cm/i) || [])[1];
+  return m ? `<span class="selo-medida">${m.split('x').join(' x ')} cm</span>` : '';
+}
+
 function fotoOuPlaceholder(produto){
   const foto = (produto.fotos && produto.fotos[0]) ? produto.fotos[0].url : null;
   if (foto) {
-    const extras = produto.fotos.length > 1
-      ? `<div class="miniaturas">${produto.fotos.map((f, i) => `<button type="button" class="${i === 0 ? 'ativa' : ''}" data-foto-mini="${f.url}" aria-label="Ver foto ${i + 1}"><img src="${f.url}" alt=""></button>`).join('')}</div>`
-      : '';
-    return `<img data-foto-principal loading="lazy" src="${foto}" alt="${produto.nome}">${extras}`;
+    return `<img data-foto-principal loading="lazy" decoding="async" width="400" height="400" src="${foto}" alt="${produto.nome}">`;
   }
   return `<div class="sem-foto">Foto em breve</div>`;
+}
+
+// Miniaturas ficam ABAIXO da foto (não por cima), para a foto principal aparecer inteira.
+function miniaturasHTML(produto){
+  if (!produto.fotos || produto.fotos.length < 2) return '';
+  return `<div class="miniaturas">${produto.fotos.map((f, i) => `<button type="button" class="${i === 0 ? 'ativa' : ''}" data-foto-mini="${f.url}" aria-label="Ver foto ${i + 1} de ${produto.nome}"><img src="${f.url}" alt="" loading="lazy" width="44" height="44"></button>`).join('')}</div>`;
 }
 
 document.addEventListener('click', (e) => {
   const mini = e.target.closest('[data-foto-mini]');
   if (!mini) return;
-  const area = mini.closest('.foto');
+  const area = mini.closest('.card-produto');
   const principal = area.querySelector('[data-foto-principal]');
   if (principal) principal.src = mini.dataset.fotoMini;
   area.querySelectorAll('[data-foto-mini]').forEach(b => b.classList.toggle('ativa', b === mini));
@@ -436,8 +457,10 @@ function cardProdutoHTML(p){
     <div class="card-produto" data-id="${p.id}">
       <div class="foto">
         ${temPromo ? '<span class="selo-promo">Promoção</span>' : ''}
+        ${seloMedida(p)}
         ${fotoOuPlaceholder(p)}
       </div>
+      ${miniaturasHTML(p)}
       <div class="corpo">
         <h3>${p.nome}</h3>
         ${p.descricao ? `<div class="faixa-info desc">${p.descricao}</div>` : ''}
@@ -447,8 +470,8 @@ function cardProdutoHTML(p){
         </div>
         <div class="dica-atacado" data-dica>${dica}</div>
         <div class="linha-qtd">
-          <div class="stepper"><button type="button" data-menos aria-label="Diminuir quantidade"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M5 12h14" stroke="currentColor" stroke-width="2.500" stroke-linecap="round"/></svg></button><input type="number" inputmode="numeric" min="1" step="1" value="1" data-qtd aria-label="Quantidade"><button type="button" data-mais aria-label="Aumentar quantidade"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M5 12h14M12 5v14" stroke="currentColor" stroke-width="2.500" stroke-linecap="round"/></svg></button></div>
-          <button class="btn" data-add style="flex:1;">Adicionar</button>
+          <div class="stepper"><button type="button" data-menos aria-label="Diminuir quantidade de ${p.nome}"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M5 12h14" stroke="currentColor" stroke-width="2.500" stroke-linecap="round"/></svg></button><input type="number" inputmode="numeric" min="1" step="1" value="1" data-qtd aria-label="Quantidade de ${p.nome}"><button type="button" data-mais aria-label="Aumentar quantidade de ${p.nome}"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M5 12h14M12 5v14" stroke="currentColor" stroke-width="2.500" stroke-linecap="round"/></svg></button></div>
+          <button type="button" class="btn" data-add style="flex:1;" aria-label="Adicionar ${p.nome} ao carrinho">Adicionar</button>
         </div>
       </div>
     </div>
@@ -459,21 +482,37 @@ function renderDestaques(){
   const destaques = produtos.filter(p => p.destaque);
   const secao = document.getElementById('secao-destaques');
   const lista = document.getElementById('lista-destaques');
-  if (!destaques.length || termoBusca) { secao.style.display = 'none'; return; }
+  if (!destaques.length || termoBusca || categoriaAtiva) { secao.style.display = 'none'; return; }
   secao.style.display = 'block';
   lista.innerHTML = destaques.map(cardProdutoHTML).join('');
   ligarEventosCards(lista);
 }
 
 let termoBusca = '';
+// Filtro por categoria (?cat=caixas|sacos|etiquetas|fitas) — combina com a busca livre (?q=).
+const CATEGORIAS = ['caixas', 'sacos', 'etiquetas', 'fitas'];
+let categoriaAtiva = '';
+function definirCategoria(cat, atualizarUrl){
+  categoriaAtiva = CATEGORIAS.includes(cat) ? cat : '';
+  document.querySelectorAll('.chips [data-cat]').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.cat === categoriaAtiva)));
+  if (atualizarUrl) {
+    try {
+      const u = new URL(location.href);
+      if (categoriaAtiva) u.searchParams.set('cat', categoriaAtiva); else u.searchParams.delete('cat');
+      history.replaceState(null, '', u);
+    } catch (e) {}
+  }
+}
+document.querySelectorAll('.chips [data-cat]').forEach(b => b.addEventListener('click', () => { definirCategoria(b.dataset.cat, true); renderGrade(); }));
 function norm(t){ return (t || '').toString().normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase(); }
 function renderGrade(){
   const grade = document.getElementById('grade-produtos');
   const q = norm(termoBusca).trim();
-  const lista = q ? produtos.filter(p => norm(p.nome + ' ' + (p.descricao || '')).includes(q)) : produtos;
+  const lista = produtos.filter(p => (!categoriaAtiva || p.categoria === categoriaAtiva) && (!q || norm(p.nome + ' ' + (p.descricao || '')).includes(q)));
+  const filtrando = !!(q || categoriaAtiva);
   document.getElementById('loja-vazia').style.display = lista.length ? 'none' : 'block';
-  document.getElementById('contagem-resultados').textContent = produtos.length ? (q ? `${lista.length} de ${produtos.length} produtos` : `${produtos.length} produtos`) : '';
-  document.getElementById('secao-destaques').style.display = (q || !produtos.some(p => p.destaque)) ? 'none' : 'block';
+  document.getElementById('contagem-resultados').textContent = produtos.length ? (filtrando ? `${lista.length} de ${produtos.length} produtos` : `${produtos.length} produtos`) : '';
+  document.getElementById('secao-destaques').style.display = (filtrando || !produtos.some(p => p.destaque)) ? 'none' : 'block';
   grade.innerHTML = lista.map(cardProdutoHTML).join('');
   ligarEventosCards(grade);
 }
@@ -542,11 +581,14 @@ function renderCarrinho(){
     atualizarBarra(0, 0);
     document.getElementById('rodape-carrinho').style.display = 'none';
     document.getElementById('rotulo-total').textContent = 'Subtotal dos produtos';
-    document.getElementById('total-carrinho').textContent = fmtMoeda(0);
+    document.getElementById('total-carrinho').textContent = '';
     return;
   }
 
   document.getElementById('rodape-carrinho').style.display = '';
+  // Sem fonte (RPC fora do ar ou item que saiu do catálogo): nenhum preço é exibido,
+  // nem R$ 0,00 — o pedido segue com "preço a confirmar no WhatsApp".
+  precosDisponiveis = produtosCarregados && carrinho.every(i => produtos.some(p => p.id === i.produto_id));
   let total = 0;
   cont.innerHTML = carrinho.map((item, idx) => {
     const produto = produtos.find(p => p.id === item.produto_id);
@@ -555,22 +597,22 @@ function renderCarrinho(){
     total += subtotal;
     return `
       <div class="item-carrinho" data-idx="${idx}">
-        ${item.foto ? `<img src="${item.foto}" alt="">` : `<div style="width:56px;height:56px;border-radius:8px;background:var(--cor-paper);flex-shrink:0;"></div>`}
+        ${item.foto ? `<img src="${item.foto}" alt="" width="56" height="56" loading="lazy">` : `<div style="width:56px;height:56px;border-radius:8px;background:var(--cor-paper);flex-shrink:0;"></div>`}
         <div class="info">
           <h4>${item.nome}</h4>
           <div class="linha-controle">
-            <div class="stepper"><button type="button" data-c-menos aria-label="Diminuir"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M5 12h14" stroke="currentColor" stroke-width="2.500" stroke-linecap="round"/></svg></button><input type="number" inputmode="numeric" min="1" step="1" value="${item.quantidade}" data-qtd-carrinho aria-label="Quantidade de ${item.nome}"><button type="button" data-c-mais aria-label="Aumentar"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M5 12h14M12 5v14" stroke="currentColor" stroke-width="2.500" stroke-linecap="round"/></svg></button></div>
-            <button class="remover" data-remover>remover</button>
+            <div class="stepper"><button type="button" data-c-menos aria-label="Diminuir quantidade de ${item.nome}"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M5 12h14" stroke="currentColor" stroke-width="2.500" stroke-linecap="round"/></svg></button><input type="number" inputmode="numeric" min="1" step="1" value="${item.quantidade}" data-qtd-carrinho aria-label="Quantidade de ${item.nome}"><button type="button" data-c-mais aria-label="Aumentar quantidade de ${item.nome}"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M5 12h14M12 5v14" stroke="currentColor" stroke-width="2.500" stroke-linecap="round"/></svg></button></div>
+            <button type="button" class="remover" data-remover aria-label="Remover ${item.nome} do carrinho">remover</button>
           </div>
         </div>
-        <div class="subtotal">${fmtMoeda(subtotal)}</div>
+        <div class="subtotal">${precosDisponiveis ? fmtMoeda(subtotal) : ''}</div>
       </div>
     `;
   }).join('');
 
   if (freteEscolhido) total += freteEscolhido.preco;
-  document.getElementById('rotulo-total').textContent = freteEscolhido ? 'Total' : 'Subtotal dos produtos';
-  document.getElementById('total-carrinho').textContent = fmtMoeda(total);
+  document.getElementById('rotulo-total').textContent = !precosDisponiveis ? 'Preços confirmados no WhatsApp' : (freteEscolhido ? 'Total' : 'Subtotal dos produtos');
+  document.getElementById('total-carrinho').textContent = precosDisponiveis ? fmtMoeda(total) : '';
   atualizarBarra(carrinho.reduce((s,i) => s + i.quantidade, 0), total);
 
   cont.querySelectorAll('.item-carrinho').forEach(el => {
@@ -596,8 +638,9 @@ function renderCarrinho(){
 function atualizarBarra(qtd, total){
   const b = document.getElementById('barra-carrinho');
   b.classList.toggle('visivel', qtd > 0);
-  document.getElementById('barra-itens').textContent = qtd + (qtd === 1 ? ' item' : ' itens') + (freteEscolhido ? '' : ' · subtotal');
-  document.getElementById('barra-total').textContent = fmtMoeda(total);
+  document.body.classList.toggle('com-barra', qtd > 0);
+  document.getElementById('barra-itens').textContent = qtd + (qtd === 1 ? ' item' : ' itens') + (precosDisponiveis && !freteEscolhido ? ' · subtotal' : '');
+  document.getElementById('barra-total').textContent = precosDisponiveis && qtd > 0 ? fmtMoeda(total) : '';
 }
 
 async function calcularFrete(){
@@ -681,9 +724,11 @@ document.getElementById('form-checkout').addEventListener('submit', (e) => {
 
   const resumoItens = carrinho.map(i => `- ${i.quantidade}x ${i.nome}`).join('\n');
   const total = document.getElementById('total-carrinho').textContent;
-  const linhasTotais = freteEscolhido
-    ? `Frete: ${freteEscolhido.servico} (${fmtMoeda(freteEscolhido.preco)})\nTotal: ${total}`
-    : `Subtotal dos produtos: ${total}\nFrete: a combinar (total final definido no WhatsApp)`;
+  const linhasTotais = !precosDisponiveis
+    ? `Preço, frete e total: a confirmar no WhatsApp`
+    : freteEscolhido
+      ? `Frete: ${freteEscolhido.servico} (${fmtMoeda(freteEscolhido.preco)})\nTotal: ${total}`
+      : `Subtotal dos produtos: ${total}\nFrete: a combinar (total final definido no WhatsApp)`;
 
   let mensagem = `Olá! Quero fechar este pedido:\n\n${resumoItens}\n\n${linhasTotais}`;
   if (nome) mensagem += `\n\nMeu nome: ${nome}`;
@@ -692,7 +737,11 @@ document.getElementById('form-checkout').addEventListener('submit', (e) => {
   window.open(`https://wa.me/${WHATSAPP_NUMERO}?text=${encodeURIComponent(mensagem)}`, '_blank');
 });
 
-try { const q0 = new URLSearchParams(location.search).get('q'); if (q0) { termoBusca = q0; document.getElementById('busca').value = q0; } } catch (e) {}
+try {
+  const params = new URLSearchParams(location.search);
+  const q0 = params.get('q'); if (q0) { termoBusca = q0; document.getElementById('busca').value = q0; }
+  const c0 = params.get('cat'); if (c0) definirCategoria(c0, false);
+} catch (e) {}
 renderCarrinho();
 carregarProdutos();
 </script>
